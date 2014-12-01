@@ -1,5 +1,5 @@
 <footer>
-	<p>Copyright &copy; Adrian West 2012  Designed by image
+	<p>Copyright &copy; Adrian West 2012  Designed by
 	<br>
 	<a"http://www.colycomputerhelp.co.uk/">Adrian West </a>
 	<br>

@@ -1,7 +1,7 @@
 <?php
 	/*
 	This file provides the information for accessing the database sand coonnecting to MySQL. It also sets the language coding to utf-8
-*/
+	*/
 
 	//First we define the constants:
 	define('DB_USER', 'admin9997');
