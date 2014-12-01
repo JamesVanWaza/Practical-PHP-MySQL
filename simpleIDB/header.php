@@ -2,8 +2,8 @@
 <body>
     <div id="header">
     <h1>This is the Header</h1>
-    <nav class="side-nav">
-        <ul>
+    <nav>
+        <ul class="side-nav">
             <li>
                 <a href="register-page.php">Register</a>
                 <a href="register-view-users-page.php">View Users</a>
