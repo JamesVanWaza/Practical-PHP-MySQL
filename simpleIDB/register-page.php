@@ -55,9 +55,7 @@ else { // If the form handler or database table contained errors                
 
 // Display any error message
 echo '<h2>System Error</h2>
-<p class="alert-box alert round">You could not be registered due to a system error. We apologize for any
-
-inconvenience.</p>';
+<p class="alert-box alert round">You could not be registered due to a system error. We apologize for any inconvenience.</p>';
 // Debug the message:
 echo '<p>' . mysqli_error($dbcon) . '<br><br>Query: ' . $q . '</p>';
 } // End of if clause ($result)
@@ -68,7 +66,7 @@ echo '<p>' . mysqli_error($dbcon) . '<br><br>Query: ' . $q . '</p>';
     }
 else { // Display the errors
         echo '<h2>Error!</h2>
-        <p class="alert-box alert round">The following error(s) occurred:<br>';
+        <p class="alert-box alert round">The following error(s) occurred:<br><a href="#" class="close">&times;</a>';
         foreach ($errors as $msg) { // Print each error.                             #12
             echo " - $msg<br>\n";
     }
