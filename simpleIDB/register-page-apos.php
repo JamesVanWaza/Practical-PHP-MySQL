@@ -1,4 +1,5 @@
 <meta charset="utf-8">
+<?php require('mysqli-connect.php'); // Connect to the database.   ?>
 <?php include('header.php'); ?>
 <?php include('nav.php'); ?>
 <?php
@@ -8,61 +9,59 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {                                     
     $errors = array(); // Initialize an error array.
     // Was the first name entered?
     if (empty($_POST['fname'])) {
-$errors[] = 'You did not enter your first name.';
+      $errors[] = 'You did not enter your first name.';
     }
-else { $fn = trim($_POST['fname']);
+    else {
+      $fn = trim($_POST['fname']);
     }
+
     // Was the last name entered?
     if (empty($_POST['lname'])) {
-        $errors[] = 'You did not enter your last name.';
+      $errors[] = 'You did not enter your last name.';
     }
-else {
-  $ln = mysqli_real_escape_string($dbcon, trim($_POST['lname']));
-}
+    else {
+      $ln = mysqli_real_escape_string($dbcon, trim($_POST['lname']));
+    }
+
     // Was an email address entered?
     if (empty($_POST['email'])) {
-        $errors[] = 'You did not enter your email address.';
+      $errors[] = 'You did not enter your email address.';
     }
-else { $e = trim($_POST['email']);
+    else {
+      $e = trim($_POST['email']);
     }
-    // Did the two passwords match?                                                   #2
+    // Did the two passwords match?
 
     if (!empty($_POST['psword1'])) {
-        if ($_POST['psword1'] != $_POST['psword2']) {
+      if ($_POST['psword1'] != $_POST['psword2']) {
         $errors[] = 'Your passwords were not the same.';
+      }
+      else {
+        $p = trim($_POST['psword1']);
+      }
     }
-else { $p = trim($_POST['psword1']);
-    }
-    }
-else { $errors[] = 'You did not enter your password.';
+    else {
+      $errors[] = 'You did not enter your password.';
     }
 //Start of the SUCCESSFUL SECTION. i.e all the fields were filled out
-if (empty($errors)) { // If no problems encountered, register user in the database     #3
+if (empty($errors)) { // If no problems encountered, register user in the database
 
-require ('mysqli-connect.php'); // Connect to the database.                            #4
-
-// Make the query                                                                      #5
-
+// Make the query
 $q = "INSERT INTO users (user_id, fname, lname, email, psword, registration_date)
-VALUES (' ', '$fn', '$ln', '$e', SHA1('$p'), NOW() )";                                 #6
+VALUES (' ', '$fn', '$ln', '$e', SHA1('$p'), NOW() )";
 
-$result = @mysqli_query ($dbcon, $q); // Run the query.                                #7
+$result = @mysqli_query ($dbcon, $q); // Run the query.
 
-if ($result) { // If it ran OK.                                                        #8
-
-header ("location: register-thanks.php");                                           #9
-
-exit();                                                                                #10
-
+if ($result) { // If it ran OK.
+  header ("Location: register-thanks.php");
+  exit();
 //End of SUCCESSFUL SECTION
 }
-else { // If the form handler or database table contained errors                       #11
+else { // If the form handler or database table contained errors
 
 // Display any error message
 echo '<h2>System Error</h2>
-<p class="alert-box alert round">You could not be registered due to a system error. We apologize for any
-
-inconvenience.</p>';
+<p class="alert-box alert round">You could not be registered due to a system error. We apologize for any inconvenience.</p>';
 // Debug the message:
 echo '<p>' . mysqli_error($dbcon) . '<br><br>Query: ' . $q . '</p>';
 } // End of if clause ($result)
