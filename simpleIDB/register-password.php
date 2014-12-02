@@ -62,9 +62,9 @@
 				echo '<h2>Error!</h2>
 <p class="alert-box alert round">The following error(s) occurred:<br>';
 foreach ($errors as $msg) { // Print each error.                             #12
-echo " - $msg<br>\n";
+	echo " - $msg<br>\n";
 }
-echo '<p class="alert-box alert round"><h3>Please try again.</h3><p><br></p>';
+	echo '<p class="alert-box alert round"><h3>Please try again.</h3><p><br></p>';
 			}
 		}// End of if(empty($errors))
 		mysqli_close($dbcon);// Close the database connection

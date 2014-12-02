@@ -1,8 +1,6 @@
-<?php include('header.php'); ?>
-
 <body>
     <div id='container'>
-        <?php include( 'header-for-template.php'); ?>
+        <?php include('header.php'); ?>
         <?php include( 'nav.php'); ?>
         <?php include( 'info-col.php'); ?>
         <div id='content'>
