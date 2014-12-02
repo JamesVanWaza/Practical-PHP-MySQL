@@ -39,3 +39,4 @@
 	} //End of if ($result)
 	mysqli_close($dbcon); //Close the databse function
 ?>
+<?php include('footer.php'); ?>
