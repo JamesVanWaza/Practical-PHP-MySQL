@@ -32,7 +32,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {                                     
       else { $p = trim($_POST['psword1']);
       }
     }
-    else { $errors[] = 'You did not enter your password.';
+    else { 
+        $errors[] = 'You did not enter your password.';
     }
 //Start of the SUCCESSFUL SECTION. i.e all the fields were filled out
 if (empty($errors)) { // If no problems encountered, register user in the database
