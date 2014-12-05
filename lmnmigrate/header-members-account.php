@@ -6,6 +6,7 @@
         <ul class="side-nav">
             <li>
                 <a href="logout.php">Log out</a>
+                <a href="edit-your-account.php">Your Account</a>
                 <a href="register-password.php">Register Password</a>
             </li>
         </ul>
