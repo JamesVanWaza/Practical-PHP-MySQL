@@ -1,4 +1,5 @@
-<?php include( 'nav.php'); ?>
+<?php include('html5req.php'); ?>
+<?php include('nav.php'); ?>
 <header>
 	<h1>Devon Real Estate</h1>
 	<h2>Try our award winning service</h2>
