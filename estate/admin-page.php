@@ -114,7 +114,9 @@ if (empty($errors)) { // If the query ran OK
     <option value="Withdrawn">Withdrawn</option>
     <option value="Sold">Sold</option>
     </select></p>
-    <div id="submit">
-    <p><input id="submit" type="submit" name="submit" value="Add"></p>
-    </div>
+    <div class="large-6 medium-6 small-12 columns">
+      </div>
+      <div class="large-12 small-12 columns">
+  	<input type="submit" id="submit" name="submit" class="button [radius round]" value="Add">
+  </div>
 </form><!--End of the admin page content-->
