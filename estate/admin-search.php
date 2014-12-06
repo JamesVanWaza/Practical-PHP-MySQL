@@ -3,7 +3,7 @@
 	<h2>Search for a Record</h2>
 	<h3>Enter the Reference Number</h3>
 </div>
-<form action="view-found-recourd.php" method="post">
+<form action="view-found-record.php" method="post">
 	<div class="row"><!--Beginning of First Row-->
   	<div class="large-6 medium-6 small-12 columns">
       <label>Reference Number
