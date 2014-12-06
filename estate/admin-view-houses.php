@@ -1,4 +1,4 @@
-<?php include("html5req.php"); ?>
+<?php include("header.php"); ?>
 <?php
 // This code fetches all the records from the houses table
 require ('mysqli-connect.php'); // Connect to the database
