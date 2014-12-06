@@ -1,4 +1,4 @@
-<?php include("header_found_houses.inc"); ?>
+<?php include("html5req.php"); ?>
 <img src="" width="">
 </header>
 <div id="content"><!--Start of table display content-->
