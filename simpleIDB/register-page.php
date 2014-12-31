@@ -2,46 +2,53 @@
 <?php include('nav.php'); ?>
 <?php
 	// This script performs an INSERT query that adds a record to the users table.
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {                                            #1
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $errors = array(); // Initialize an error array.
     // Was the first name entered?
     if (empty($_POST['fname'])) {
     $errors[] = 'You did not enter your first name.';
     }
-    else { $fn = trim($_POST['fname']);
+    else {
+      $fn = trim($_POST['fname']);
     }
     // Was the last name entered?
     if (empty($_POST['lname'])) {
         $errors[] = 'You did not enter your last name.';
     }
-    else { $ln = trim($_POST['lname']);
+    else {
+      $ln = trim($_POST['lname']);
     }
     // Was an email address entered?
     if (empty($_POST['email'])) {
         $errors[] = 'You did not enter your email address.';
     }
-    else { $e = trim($_POST['email']);
+    else {
+      $e = trim($_POST['email']);
     }
-    // Did the two passwords match?                                                   #2
+    // Did the two passwords match?
 
     if (!empty($_POST['psword1'])) {
       if ($_POST['psword1'] != $_POST['psword2']) {
-      $errors[] = 'Your passwords were not the same.';
+        $errors[] = 'Your passwords were not the same.';
       }
-      else { $p = trim($_POST['psword1']);
+      else {
+        $p = trim($_POST['psword1']);
       }
     }
+<<<<<<< HEAD
     else { 
         $errors[] = 'You did not enter your password.';
+=======
+    else {
+      $errors[] = 'You did not enter your password.';
+>>>>>>> refractor2
     }
 //Start of the SUCCESSFUL SECTION. i.e all the fields were filled out
 if (empty($errors)) { // If no problems encountered, register user in the database
-
-require ('mysqli-connect.php'); // Connect to the database.
+  require ('mysqli-connect.php'); // Connect to the database.
 
 // Make the query
-
 $q = "INSERT INTO users (user_id, fname, lname, email, psword, registration_date)
 VALUES (' ', '$fn', '$ln', '$e', SHA1('$p'), NOW() )";
 
@@ -49,16 +56,16 @@ $result = @mysqli_query ($dbcon, $q); // Run the query.
 
 if ($result) { // If it ran OK.
   header ("Location: register-thanks.php");
-  exit();
+exit();
 //End of SUCCESSFUL SECTION
 }
 else { // If the form handler or database table contained errors
 
 // Display any error message
-echo '<h2>System Error</h2>
-<p class="alert-box alert round">You could not be registered due to a system error. We apologize for any inconvenience.</p>';
+  echo '<h2>System Error</h2>
+  <p class="alert-box alert round">You could not be registered due to a system error. We apologize for any inconvenience.</p>';
 // Debug the message:
-echo '<p>' . mysqli_error($dbcon) . '<br><br>Query: ' . $q . '</p>';
+  echo '<p>' . mysqli_error($dbcon) . '<br><br>Query: ' . $q . '</p>';
 } // End of if clause ($result)
     mysqli_close($dbcon); // Close the database connection.
     // Include the footer and quit the script:
@@ -68,7 +75,7 @@ echo '<p>' . mysqli_error($dbcon) . '<br><br>Query: ' . $q . '</p>';
 else { // Display the errors
         echo '<h2>Error!</h2>
         <p class="alert-box alert round">The following error(s) occurred:<br><a href="#" class="close">&times;</a>';
-        foreach ($errors as $msg) { // Print each error.                             #12
+        foreach ($errors as $msg) { // Print each error.
             echo " - $msg<br>\n";
     }
         echo '</p><h3>Please try again.</h3><p><br></p>';

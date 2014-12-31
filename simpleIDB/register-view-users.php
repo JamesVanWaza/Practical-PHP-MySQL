@@ -17,8 +17,7 @@
 		<tr>
 		<td><b>Name</b></td>
 		<td><b>Date Registered</b></td>
-		</tr>
-		</table>";
+		</tr>";
 		/*Fetch and Print all the records*/
 
 		while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
