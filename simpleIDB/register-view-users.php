@@ -17,8 +17,12 @@
 		<tr>
 		<td><b>Name</b></td>
 		<td><b>Date Registered</b></td>
+<<<<<<< HEAD
 		</tr>
 		</table>";
+=======
+		</tr>";
+>>>>>>> a43a31c40648fae717ad87e00a7474a21635c2bc
 		/*Fetch and Print all the records*/
 
 		while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
