@@ -2,89 +2,69 @@
 <?php include('nav.php'); ?>
 <?php
 	// This script performs an INSERT query that adds a record to the users table.
-<<<<<<< HEAD
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {                                            #1
-=======
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
->>>>>>> a43a31c40648fae717ad87e00a7474a21635c2bc
 
     $errors = array(); // Initialize an error array.
     // Was the first name entered?
     if (empty($_POST['fname'])) {
-    $errors[] = 'You did not enter your first name.';
-    }
-<<<<<<< HEAD
-    else { $fn = trim($_POST['fname']);
-=======
-    else {
-      $fn = trim($_POST['fname']);
->>>>>>> a43a31c40648fae717ad87e00a7474a21635c2bc
-    }
-    // Was the last name entered?
-    if (empty($_POST['lname'])) {
-        $errors[] = 'You did not enter your last name.';
-    }
-<<<<<<< HEAD
-    else { $ln = trim($_POST['lname']);
-=======
-    else {
-      $ln = trim($_POST['lname']);
->>>>>>> a43a31c40648fae717ad87e00a7474a21635c2bc
-    }
-    // Was an email address entered?
-    if (empty($_POST['email'])) {
-        $errors[] = 'You did not enter your email address.';
-    }
-<<<<<<< HEAD
-    else { $e = trim($_POST['email']);
-    }
-    // Did the two passwords match?                                                   #2
+        $errors[] = 'You did not enter your first name.';
+    } else {
+        $fn = trim($_POST['fname']);
 
-    if (!empty($_POST['psword1'])) {
-      if ($_POST['psword1'] != $_POST['psword2']) {
-      $errors[] = 'Your passwords were not the same.';
-      }
-      else { $p = trim($_POST['psword1']);
-      }
-    }
-    else { 
-        $errors[] = 'You did not enter your password.';
-    }
-//Start of the SUCCESSFUL SECTION. i.e all the fields were filled out
-if (empty($errors)) { // If no problems encountered, register user in the database
+        // Was the last name entered?
+        if (empty($_POST['lname'])) {
+            $errors[] = 'You did not enter your last name.';
+        } else {
+            $ln = trim($_POST['lname']);
 
-require ('mysqli-connect.php'); // Connect to the database.
+            // Was an email address entered?
+            if (empty($_POST['email'])) {
+                $errors[] = 'You did not enter your email address.';
+            } else {
+                $e = trim($_POST['email']);
+            }
+            // Did the two passwords match?
 
-// Make the query
+            if (!empty($_POST['psword1'])) {
+                if ($_POST['psword1'] != $_POST['psword2']) {
+                    $errors[] = 'Your passwords were not the same.';
+                } else {
+                    $p = trim($_POST['psword1']);
+                }
+            } else {
+                $errors[] = 'You did not enter your password.';
+            }
+            //Start of the SUCCESSFUL SECTION. i.e all the fields were filled out
+            if (empty($errors)) { // If no problems encountered, register user in the database
 
-=======
-    else {
-      $e = trim($_POST['email']);
-    }
-    // Did the two passwords match?
+                require('mysqli-connect.php'); // Connect to the database.
 
-    if (!empty($_POST['psword1'])) {
-      if ($_POST['psword1'] != $_POST['psword2']) {
-        $errors[] = 'Your passwords were not the same.';
-      }
-      else {
-        $p = trim($_POST['psword1']);
-      }
-    }
-<<<<<<< HEAD
-    else { 
-        $errors[] = 'You did not enter your password.';
-=======
-    else {
-      $errors[] = 'You did not enter your password.';
->>>>>>> refractor2
-    }
+                // Make the query
+
+
+                // Was an email address entered?
+                if (empty($_POST['email'])) {
+                    $errors[] = 'You forgot to enter your email address.';
+                } else {
+                    $e = mysqli_real_escape_string($dbcon, trim($_POST['email']));
+                }
+                // Did the two passwords match?
+
+                if (!empty($_POST['psword1'])) {
+                    if ($_POST['psword1'] != $_POST['psword2']) {
+                        $errors[] = 'Your passwords were not the same.';
+                    } else {
+                        $p = trim($_POST['psword1']);
+                    }
+                } else {
+                    $errors[] = 'You did not enter your password.';
 //Start of the SUCCESSFUL SECTION. i.e all the fields were filled out
 if (empty($errors)) { // If no problems encountered, register user in the database
   require ('mysqli-connect.php'); // Connect to the database.
 
 // Make the query
->>>>>>> a43a31c40648fae717ad87e00a7474a21635c2bc
+
 $q = "INSERT INTO users (user_id, fname, lname, email, psword, registration_date)
 VALUES (' ', '$fn', '$ln', '$e', SHA1('$p'), NOW() )";
 
@@ -92,27 +72,27 @@ $result = @mysqli_query ($dbcon, $q); // Run the query.
 
 if ($result) { // If it ran OK.
   header ("Location: register-thanks.php");
-<<<<<<< HEAD
+
   exit();
-=======
+
 exit();
->>>>>>> a43a31c40648fae717ad87e00a7474a21635c2bc
+
 //End of SUCCESSFUL SECTION
 }
 else { // If the form handler or database table contained errors
 
 // Display any error message
-<<<<<<< HEAD
+
 echo '<h2>System Error</h2>
 <p class="alert-box alert round">You could not be registered due to a system error. We apologize for any inconvenience.</p>';
 // Debug the message:
 echo '<p>' . mysqli_error($dbcon) . '<br><br>Query: ' . $q . '</p>';
-=======
+
   echo '<h2>System Error</h2>
   <p class="alert-box alert round">You could not be registered due to a system error. We apologize for any inconvenience.</p>';
 // Debug the message:
   echo '<p>' . mysqli_error($dbcon) . '<br><br>Query: ' . $q . '</p>';
->>>>>>> a43a31c40648fae717ad87e00a7474a21635c2bc
+
 } // End of if clause ($result)
     mysqli_close($dbcon); // Close the database connection.
     // Include the footer and quit the script:
@@ -122,11 +102,11 @@ echo '<p>' . mysqli_error($dbcon) . '<br><br>Query: ' . $q . '</p>';
 else { // Display the errors
         echo '<h2>Error!</h2>
         <p class="alert-box alert round">The following error(s) occurred:<br><a href="#" class="close">&times;</a>';
-<<<<<<< HEAD
+
         foreach ($errors as $msg) { // Print each error.                             #12
-=======
+
         foreach ($errors as $msg) { // Print each error.
->>>>>>> a43a31c40648fae717ad87e00a7474a21635c2bc
+
             echo " - $msg<br>\n";
     }
         echo '</p><h3>Please try again.</h3><p><br></p>';
