@@ -5,3 +5,10 @@ body{
 h1, nav{
 	font-family: Raleway;
 }
+#header{
+	background-color: #123456;
+	width: 100%;
+}
+#header h1{
+	color: white;
+}
