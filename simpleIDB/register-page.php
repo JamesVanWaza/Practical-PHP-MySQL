@@ -41,7 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			VALUES (' ', '$fn', '$ln', '$e', SHA1('$p'), NOW())";
 		$result = @mysqli_query ($dbcon, $q); // Run the query.
 		if ($result) { // If it ran OK.
-		header ("Location: register-thanks.php");
+		include ("register-thanks.php");
 		exit();
 		// Print a message:
 		//echo '<h2>Thank you!</h2>
