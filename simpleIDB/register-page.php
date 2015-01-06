@@ -1,137 +1,70 @@
 <?php include('header.php'); ?>
 <?php include('nav.php'); ?>
-<?php
-	// This script performs an INSERT query that adds a record to the users table.
-<<<<<<< HEAD
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {                                            #1
-=======
+<p><?php
+// This script is a query that INSERTs a record in the users table.
+// Check that form has been submitted:
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
->>>>>>> a43a31c40648fae717ad87e00a7474a21635c2bc
-
-    $errors = array(); // Initialize an error array.
-    // Was the first name entered?
-    if (empty($_POST['fname'])) {
-    $errors[] = 'You did not enter your first name.';
-    }
-<<<<<<< HEAD
-    else { $fn = trim($_POST['fname']);
-=======
-    else {
-      $fn = trim($_POST['fname']);
->>>>>>> a43a31c40648fae717ad87e00a7474a21635c2bc
-    }
-    // Was the last name entered?
-    if (empty($_POST['lname'])) {
-        $errors[] = 'You did not enter your last name.';
-    }
-<<<<<<< HEAD
-    else { $ln = trim($_POST['lname']);
-=======
-    else {
-      $ln = trim($_POST['lname']);
->>>>>>> a43a31c40648fae717ad87e00a7474a21635c2bc
-    }
-    // Was an email address entered?
-    if (empty($_POST['email'])) {
-        $errors[] = 'You did not enter your email address.';
-    }
-<<<<<<< HEAD
-    else { $e = trim($_POST['email']);
-    }
-    // Did the two passwords match?                                                   #2
-
-    if (!empty($_POST['psword1'])) {
-      if ($_POST['psword1'] != $_POST['psword2']) {
-      $errors[] = 'Your passwords were not the same.';
-      }
-      else { $p = trim($_POST['psword1']);
-      }
-    }
-    else { 
-        $errors[] = 'You did not enter your password.';
-    }
-//Start of the SUCCESSFUL SECTION. i.e all the fields were filled out
-if (empty($errors)) { // If no problems encountered, register user in the database
-
-require ('mysqli-connect.php'); // Connect to the database.
-
-// Make the query
-
-=======
-    else {
-      $e = trim($_POST['email']);
-    }
-    // Did the two passwords match?
-
-    if (!empty($_POST['psword1'])) {
-      if ($_POST['psword1'] != $_POST['psword2']) {
-        $errors[] = 'Your passwords were not the same.';
-      }
-      else {
-        $p = trim($_POST['psword1']);
-      }
-    }
-<<<<<<< HEAD
-    else { 
-        $errors[] = 'You did not enter your password.';
-=======
-    else {
-      $errors[] = 'You did not enter your password.';
->>>>>>> refractor2
-    }
-//Start of the SUCCESSFUL SECTION. i.e all the fields were filled out
-if (empty($errors)) { // If no problems encountered, register user in the database
-  require ('mysqli-connect.php'); // Connect to the database.
-
-// Make the query
->>>>>>> a43a31c40648fae717ad87e00a7474a21635c2bc
-$q = "INSERT INTO users (user_id, fname, lname, email, psword, registration_date)
-VALUES (' ', '$fn', '$ln', '$e', SHA1('$p'), NOW() )";
-
-$result = @mysqli_query ($dbcon, $q); // Run the query.
-
-if ($result) { // If it ran OK.
-  header ("Location: register-thanks.php");
-<<<<<<< HEAD
-  exit();
-=======
-exit();
->>>>>>> a43a31c40648fae717ad87e00a7474a21635c2bc
-//End of SUCCESSFUL SECTION
-}
-else { // If the form handler or database table contained errors
-
-// Display any error message
-<<<<<<< HEAD
-echo '<h2>System Error</h2>
-<p class="alert-box alert round">You could not be registered due to a system error. We apologize for any inconvenience.</p>';
-// Debug the message:
-echo '<p>' . mysqli_error($dbcon) . '<br><br>Query: ' . $q . '</p>';
-=======
-  echo '<h2>System Error</h2>
-  <p class="alert-box alert round">You could not be registered due to a system error. We apologize for any inconvenience.</p>';
-// Debug the message:
-  echo '<p>' . mysqli_error($dbcon) . '<br><br>Query: ' . $q . '</p>';
->>>>>>> a43a31c40648fae717ad87e00a7474a21635c2bc
-} // End of if clause ($result)
-    mysqli_close($dbcon); // Close the database connection.
-    // Include the footer and quit the script:
-    include ('footer.php');
-    exit();
-    }
-else { // Display the errors
-        echo '<h2>Error!</h2>
-        <p class="alert-box alert round">The following error(s) occurred:<br><a href="#" class="close">&times;</a>';
-<<<<<<< HEAD
-        foreach ($errors as $msg) { // Print each error.                             #12
-=======
-        foreach ($errors as $msg) { // Print each error.
->>>>>>> a43a31c40648fae717ad87e00a7474a21635c2bc
-            echo " - $msg<br>\n";
-    }
-        echo '</p><h3>Please try again.</h3><p><br></p>';
-    }// End of if (empty($errors)) IF.
-   } // End of the main Submit conditional.
+	$errors = array(); // Initialize an error array.
+	// Check for a first name:
+	if (empty($_POST['fname'])) {
+		$errors[] = 'You forgot to enter your first name.';
+	} else {
+		$fn = trim($_POST['fname']);
+	}
+	// Check for a last name:
+	if (empty($_POST['lname'])) {
+		$errors[] = 'You forgot to enter your last name.';
+	} else {
+		$ln = trim($_POST['lname']);
+	}
+	// Check for an email address:
+	if (empty($_POST['email'])) {
+		$errors[] = 'You forgot to enter your email address.';
+	} else {
+		$e = trim($_POST['email']);
+	}
+	// Check for a password and match against the confirmed password:
+	if (!empty($_POST['psword1'])) {
+		if ($_POST['psword1'] != $_POST['psword2']) {
+			$errors[] = 'Your two password did not match.';
+		} else {
+			$p = trim($_POST['psword1']);
+		}
+	} else {
+		$errors[] = 'You forgot to enter your password.';
+	}
+	if (empty($errors)) { // If everything's OK.
+	// Register the user in the database...
+		require ('mysqli-connect.php'); // Connect to the db.
+		// Make the query:
+		$q = "INSERT INTO users (user_id, fname, lname, email, psword, registration_date)
+			VALUES (' ', '$fn', '$ln', '$e', SHA1('$p'), NOW())";
+		$result = @mysqli_query ($dbcon, $q); // Run the query.
+		if ($result) { // If it ran OK.
+		header ("Location: register-thanks.php");
+		exit();
+		// Print a message:
+		//echo '<h2>Thank you!</h2>
+		//<p>You are now registered. In Chapter 12 you will actually be able to log in!</p><p><br></p>';
+		} else { // If it did not run OK.
+		// Public message:
+			echo '<h2>System Error</h2>
+			<p class="alert-box alert round">You could not be registered due to a system error. We apologize for any inconvenience.</p>';
+			// Debugging message:
+			echo '<p>' . mysqli_error($dbcon) . '<br><br>Query: ' . $q . '</p>';
+		} // End of if ($r) IF.
+		mysqli_close($dbcon); // Close the database connection.
+		exit();
+	} else { // Report the errors.
+		//header ("location: register-page.php");
+		echo '<h2>Error!</h2>
+		<p class="alert-box alert round">The following error(s) occurred:<br>';
+		foreach ($errors as $msg) { // Print each error.
+			echo " - $msg<br>\n";
+		}
+		echo '</p><h3>Please try again.</h3><p><br></p>';
+		}// End of if (empty($errors)) IF.
+} // End of the main Submit conditional.
 ?>
 <h2>Register</h2>
 <!--display the form on the screen-->
