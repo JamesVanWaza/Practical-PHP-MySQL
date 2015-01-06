@@ -1,7 +1,7 @@
 <?php include('html5req.php'); ?>
 <body>
     <div id="header">
-    <h1>This is the Header</h1>
+    <h1>This is the Thank You Header</h1>
     <nav>
         <ul class="side-nav">
             <li>

@@ -1,12 +1,7 @@
 <?php
 	/*
-<<<<<<< HEAD
-	This file provides the information for accessing the database sand coonnecting to MySQL. It also sets the language coding to utf-8
-*/
-=======
 	This file provides the information for accessing the database sand coonnecting to MySQL. It also sets the language coding to utf-8*/
 
->>>>>>> refractor7
 	//First we define the constants:
 	define('DB_USER', 'admin9997');
 	define('DB_PASSWORD', 'WP6cV+~SqUU~w#Nzu9');
