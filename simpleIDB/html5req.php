@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <meta charset="utf-8">
-
 <head>
     <link href="css/foundation.css" rel="stylesheet" type="text/css">
     <link href='http://fonts.googleapis.com/css?family=Quattrocento:400,700|Quattrocento+Sans:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
