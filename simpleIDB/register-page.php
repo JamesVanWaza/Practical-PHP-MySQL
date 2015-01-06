@@ -49,7 +49,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		} else { // If it did not run OK.
 		// Public message:
 			echo '<h2>System Error</h2>
-			<p class="error">You could not be registered due to a system error. We apologize for any inconvenience.</p>';
+			<p class="alert-box alert round">You could not be registered due to a system error. We apologize for any inconvenience.</p>';
 			// Debugging message:
 			echo '<p>' . mysqli_error($dbcon) . '<br><br>Query: ' . $q . '</p>';
 		} // End of if ($r) IF.
