@@ -1,4 +1,5 @@
 body{
+    background-color: bisque;
 	margin: 1%;
 	font-family: Quattrocento;
 }
@@ -6,9 +7,13 @@ h1, nav{
 	font-family: Raleway;
 }
 #header{
-	background-color: #123456;
+	background-color: #F2D45B;
 	width: 100%;
 }
 #header h1{
 	color: white;
+}
+ul.sidenav li a:hover{
+	background-color: #A34567;
+	color: #B35678;
 }
