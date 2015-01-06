@@ -67,7 +67,7 @@ if (empty($errors)) { // If the query ran OK
         mysqli_close($dbcon); // Close the database connection
     } else { // Display the errors
         echo '<h2>Error!</h2>
-        <p class="error">The following error(s) occurred:<br>';
+        <p class="alert-box alert round">The following error(s) occurred:<br>';
         foreach ($errors as $msg) { // Print each error.
             echo " - $msg<br>\n";
         }

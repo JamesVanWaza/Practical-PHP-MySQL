@@ -168,14 +168,14 @@ phone='$phone' WHERE user_id=$id LIMIT 1";
     echo '<h3>Your Account has Been Updated.</h3>';
    } 
    else { // Echo a message if the query failed
-    echo '<p class="error">The user could not be edited due to a system error. 
+    echo '<p class="alert-box alert round">The user could not be edited due to a system error.
     We apologize for any inconvenience.</p>'; // Message
     echo '<p>' . mysqli_error($dbcon) . '<br />Query: ' . $q . '</p>'; // Debugging message
    }
     }  
 }
 else { // Display the errors
-   echo '<p class="error">The following error(s) occurred:<br>';
+   echo '<p class="alert-box alert round">The following error(s) occurred:<br>';
    foreach ($errors as $msg) { // Echo each error
     echo " - $msg<br/>\n";
    }
@@ -235,7 +235,7 @@ value="' .$row[9]. '"></p>
 <input type="hidden" name="id" value="' . $id . '">
 </form>';
 } else { // The user could not be validated
-...echo '<p class="error">This page has been accessed in error.</p>';
+...echo '<p class="alert-box alert round">This page has been accessed in error.</p>';
 }
 mysqli_close($dbcon);
     include ('footer.php');
