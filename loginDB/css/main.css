@@ -1,7 +1,23 @@
 body{
+    background-color: bisque;
 	margin: 1%;
 	font-family: Quattrocento;
 }
 h1, nav{
 	font-family: Raleway;
+}
+#header{
+	background-color: #F2D45B;
+	width: 100%;
+}
+#header h1{
+	color: white;
+}
+ul.sidenav li a:hover{
+	background-color: #A34567;
+	color: #B35678;
+}
+h2{
+	font-family: 'Poiret One', cursive;
+    color: #C45D67;
 }
