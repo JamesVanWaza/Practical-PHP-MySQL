@@ -36,8 +36,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	// Register the user in the database...
 		require ('mysqli-connect.php'); // Connect to the db.
 		// Make the query:
-		$q = "INSERT INTO users (user_id, fname, lname, email, psword, registration_date)
-			VALUES (' ', '$fn', '$ln', '$e', SHA1('$p'), NOW())";
+		$q = "INSERT INTO users (user_id, fname, lname, email, psword,          registration_date)
+        VALUES (`user_id`, '$fn', '$ln', '$e', SHA1('$p'), NOW() )";
 		$result = @mysqli_query ($dbcon, $q); // Run the query.
 		if ($result) { // If it ran OK.
         // header ("Location: register-thanks.php");- Line of code not working
@@ -49,7 +49,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		} else { // If it did not run OK.
 		// Public message:
 			echo '<h2>System Error</h2>
-			<p class="alert-box alert round">You could not be registered due to a system error. We apologize for any inconvenience.<a href="#" class="close">&times;</a></p>';
+            <div data-alert class="alert-box alert round">
+			<p class="text-center">You could not be registered due to a system error. We apologize for any inconvenience.<a href="#" class="close">&times;</a></p></div>';
 			// Debugging message:
 			echo '<p>' . mysqli_error($dbcon) . '<br><br>Query: ' . $q . '</p>';
 		} // End of if ($r) IF.
