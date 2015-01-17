@@ -18,16 +18,9 @@
     </ul>
 </section>
 </nav>
-<script>
-document.write('<script src=js/vendor/' +
-('__proto__' in {} ? 'zepto' : 'jquery') +
-'.js><\/script>')
-</script>
 <script src="js/vendor/jquery.js"></script>
 <script src="js/foundation/foundation.js"></script>
-<!-- <script src="js/foundation/foundation.orbit.js"></script> -->
-<!-- Updating slider settings in here -->
-<script src="js/foundation.min.js"></script>
+<script src="js/vendor/modernizr.js"></script>
 <script>
-$(document).foundation();
+    $(document).foundation();
 </script>
