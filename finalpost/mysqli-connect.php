@@ -6,7 +6,7 @@
 	define('DB_USER', 'admin9997');
 	define('DB_PASSWORD', 'WP6cV+~SqUU~w#Nzu9');
 	define('DB_HOST', 'localhost');
-	define('DB_NAME', 'Practical-PHP-MySQL-Book');
+	define('DB_NAME', 'practicalphpmysqlbook');
 
 	/*
 	Next we assign the database connection to a variable that we will call $dbcon
