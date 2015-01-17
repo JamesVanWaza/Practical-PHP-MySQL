@@ -8,11 +8,8 @@
     <link href='http://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
     <link href="css/main.css" rel="stylesheet" type="text/css">
     <script src="js/vendor/jquery.js"></script>
-    <script src="js/vendor/zepto.min.js"></script>
+    <script src="js/foundation/foundation.js"></script>
     <script src="js/vendor/modernizr.js"></script>
-    <script src="js/vendor/fastclick.js"></script>
-    <script src="js/vendor/foundation.min.js"></script>
-    <script src="js/vendor/foundation.topbar.js"></script>
     <script>
         $(document).foundation();
     </script>
