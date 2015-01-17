@@ -1,6 +1,5 @@
 <?php include('header.php'); ?>
-<?php include('nav.php'); ?>
-<p><?php
+<?php include('nav.php'); 
 // This script is a query that INSERTs a record in the users table.
 // Check that form has been submitted:
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -50,7 +49,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		} else { // If it did not run OK.
 		// Public message:
 			echo '<h2>System Error</h2>
-			<p class="alert-box alert round">You could not be registered due to a system error. We apologize for any inconvenience.</p>';
+			<p class="alert-box alert round">You could not be registered due to a system error. We apologize for any inconvenience.<a href="#" class="close">&times;</a></p>';
 			// Debugging message:
 			echo '<p>' . mysqli_error($dbcon) . '<br><br>Query: ' . $q . '</p>';
 		} // End of if ($r) IF.
@@ -59,11 +58,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	} else { // Report the errors.
 		//header ("location: register-page.php");
 		echo '<h2>Error!</h2>
-		<p class="alert-box alert round">The following error(s) occurred:<br>';
+		  <div data-alert class="alert-box alert round">
+            <p class="text-center">The following error(s) occurred:<br>
+               <a href="#" class="close">&times;</a>';
 		foreach ($errors as $msg) { // Print each error.
 			echo " - $msg<br>\n";
 		}
-		echo '</p><h3>Please try again.</h3><p><br></p>';
+		echo '</p><h3 class="text-center">Please try again.</h3><p><br></p></div>';
 		}// End of if (empty($errors)) IF.
 } // End of the main Submit conditional.
 ?>
@@ -108,3 +109,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       </div>
     </div><!--End of Third Row-->
 </form>
+<script src="js/vendor/jquery.js"></script>
+<script src="js/vendor/zepto.min.js"></script>
+<script src="js/vendor/modernizr.js"></script>
+<script src="js/vendor/fastclick.js"></script>
+<script src="js/vendor/foundation.min.js"></script>
+<script src="js/vendor/foundation.topbar.js"></script>
+<script>
+    $(document).foundation();
+</script>
