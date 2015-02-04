@@ -35,32 +35,25 @@ else { $p = mysqli_real_escape_string($dbcon, trim($_POST['psword1']));
 else { $errors[] = 'You did not enter your password.';
     }
 //Start of the SUCCESSFUL SECTION. i.e all the fields were filled out
-if (empty($errors)) { // If no problems encountered, register user in the database     #3
+if (empty($errors)) { // If no problems encountered, register user in the database
 
-require ('mysqli-connect.php'); // Connect to the database.                            #4
+// Make the query
+/*Ability to add apostrophes in a database*/
+$q = 'INSERT INTO logindb (user_id, fname, lname, email, psword, registration_date)';
+$q .= "VALUES (`user_id`, '$fn', '$ln', '$e', SHA1('$p'), NOW() )";
 
-// Make the query                                                                      #5
+$result = @mysqli_query ($dbcon, $q); // Run the query.
 
-$q = "INSERT INTO logindb (user_id, fname, lname, email, psword, registration_date)
-VALUES (' ', '$fn', '$ln', '$e', SHA1('$p'), NOW() )";                                 #6
-
-$result = @mysqli_query ($dbcon, $q); // Run the query.                                #7
-
-if ($result) { // If it ran OK.                                                        #8
-
-header ("location: register-thanks.php");                                           #9
-
-exit();                                                                                #10
-
+if ($result) { // If it ran OK.
+  header ("Location: register-thanks.php");
+  exit();
 //End of SUCCESSFUL SECTION
 }
-else { // If the form handler or database table contained errors                       #11
+else { // If the form handler or database table contained errors
 
 // Display any error message
 echo '<h2>System Error</h2>
-<p class="alert-box alert round">You could not be registered due to a system error. We apologize for any
-
-inconvenience.</p>';
+<p class="alert-box alert round">You could not be registered due to a system error. We apologize for any inconvenience.</p>';
 // Debug the message:
 echo '<p>' . mysqli_error($dbcon) . '<br><br>Query: ' . $q . '</p>';
 } // End of if clause ($result)
@@ -70,7 +63,7 @@ echo '<p>' . mysqli_error($dbcon) . '<br><br>Query: ' . $q . '</p>';
     exit();
     }
 else { // Display the errors
-        echo '<h2>Error!</h2>
+        echo '<h2 class="text-center">Error!</h2>
         <p class="alert-box alert round">The following error(s) occurred:<br>';
         foreach ($errors as $msg) { // Print each error.                             #12
             echo " - $msg<br>\n";
@@ -81,7 +74,7 @@ else { // Display the errors
 ?>
 <h2>Register</h2>
 <!--display the form on the screen-->
-<form action="register-thanks.php" method="post">
+<form action="register-page-apos.php" method="post">
   <div class="row"><!--Beginning of First Row-->
   	<div class="large-6 medium-6 small-12 columns">
       <label>First Name
@@ -90,14 +83,14 @@ else { // Display the errors
     </div>
      <div class="large-6 medium-6 small-12 columns">
       <label>Last Name
-        <input id="lname" type="text" name="lname" size="40" maxlength="40" placeholder="Last Name" value="<?php if (isset($_POST['lname'])) echo $_POST['lname']; ?>"/>
+        <input id="fname" type="text" name="lname" size="40" maxlength="40" placeholder="Last Name" value="<?php if (isset($_POST['lname'])) echo $_POST['lname']; ?>"/>
       </label>
     </div>
   </div><!--End of First Row-->
   <div class="row"><!--Beginning of Second Row-->
     <div class="large-12 small-12 columns">
       <label>Email
-         <input id="email" type="email" name="email" size="50" maxlength="50" placeholder="Email" value="<?php if (isset($_POST['email'])) echo $_POST['email']; ?>"/>
+         <input id="email" type="email" name="email" size="50" maxlength="50"placeholder="Email" value="<?php if (isset($_POST['email'])) echo $_POST['email']; ?>"/>
       </label>
     </div>
   </div><!--End of Second Row-->
@@ -117,3 +110,9 @@ else { // Display the errors
   </div>
     </div><!--End of Third Row-->
 </form>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.js"></script>
+    <script src="http://cdn.foundation5.zurb.com/foundation.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
+    <script>
+        $(document).foundation();
+    </script>
