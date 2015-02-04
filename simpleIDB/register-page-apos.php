@@ -48,7 +48,7 @@ if (empty($errors)) { // If no problems encountered, register user in the databa
 
 // Make the query
 $q = "INSERT INTO users (user_id, fname, lname, email, psword, registration_date)
-VALUES (' ', '$fn', '$ln', '$e', SHA1('$p'), NOW() )";
+VALUES (" ", "$fn", "$ln", "$e", SHA1("$p"), NOW() )";
 
 $result = @mysqli_query ($dbcon, $q); // Run the query.
 
@@ -118,3 +118,9 @@ else { // Display the errors
   </div>
     </div><!--End of Third Row-->
 </form>
+<script src="js/vendor/jquery.js"></script>
+<script src="js/foundation/foundation.js"></script>
+<script src="js/vendor/modernizr.js"></script>
+<script>
+        $(document).foundation();
+</script>
