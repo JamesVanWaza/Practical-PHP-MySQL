@@ -11,10 +11,6 @@
     <!-- Right Nav Section -->
     <ul class="right">
         <li><a href="page1.php" title="Return to Home Page">Home Page</a></li>
-        <li><a href="page2.php" title="Page two">Page 2</a></li>
-        <li><a href="page3.php" title="Page three">Page 3</a></li>
-        <li><a href="page4.php" title="Page four">Page 4</a></li>
-        <li><a href="page5.php" title="Page five">Page 5</a></li>
     </ul>
 </section>
 </nav>
