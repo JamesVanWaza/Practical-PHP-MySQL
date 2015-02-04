@@ -36,12 +36,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	// Register the user in the database...
 		require ('mysqli-connect.php'); // Connect to the db.
 		// Make the query:
-		$q = "INSERT INTO users (user_id, fname, lname, email, psword,          registration_date)
+		$q = "INSERT INTO users (user_id, fname, lname, email, psword, registration_date)
         VALUES (`user_id`, '$fn', '$ln', '$e', SHA1('$p'), NOW() )";
 		$result = @mysqli_query ($dbcon, $q); // Run the query.
 		if ($result) { // If it ran OK.
         // header ("Location: register-thanks.php");- Line of code not working
-		include ("register-thanks.php");
+		header ("Location: register-thanks.php");
 		exit();
 		// Print a message:
 		//echo '<h2>Thank you!</h2>
