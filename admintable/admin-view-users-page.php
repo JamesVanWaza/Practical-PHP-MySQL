@@ -1,6 +1,6 @@
 <?php
-include 'login-header.php';
 session_start();
+include 'login-header.php';
 if (!isset($_SESSION['user_level']) or ($_SESSION['user_level'] != 1)) {
 	header("Location: login.php");
 	exit();
