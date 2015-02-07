@@ -4,8 +4,6 @@ if (!isset($_SESSION['user_level']) or($_SESSION['user_level']) !=0) {
 header('Location: login.php');
 		exit();
 	}
-?>
-<?php
 	echo '<h2>Welcome to the Members Page';
 	if (isset($_SESSION['fname'])) {
 		echo "{$_SESSION['fname']}";
