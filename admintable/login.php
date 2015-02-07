@@ -1,9 +1,3 @@
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.js"></script>
-<script src="http://cdn.foundation5.zurb.com/foundation.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
-<script>
-    $(document).foundation();
-</script>
 <?php include 'login-header.php';
 /*This section processes submissions from the login form*/
 /*Check if the form has been submitted*/
@@ -27,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	if ($e && $p) {
 		/*If no problems*/
 		/*Retrieve the user_id, first_name and user_level for that email/password combination*/
-		$q = "SELECT user_id, fname, user_level FROM users WHERE (email='$e' AND psword=SHA1('$p'))";
+		$q = "SELECT user_id, fname, user_level FROM admintable WHERE (email='$e' AND psword=SHA1('$p'))";
 		/*Run the query and assign it to the variable $result*/
 		$result = mysqli_query($dbcon, $q);
 		/*Count the number of rows that match the email/password combination*/
@@ -84,3 +78,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   </div>
     </div><!--End of Third Row-->
 </form>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.js"></script>
+<script src="http://cdn.foundation5.zurb.com/foundation.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
+<script>
+    $(document).foundation();
+</script>
