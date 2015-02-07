@@ -41,7 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			mysqli_close($dbcon);
 		} else {
 			//No Match was made
-			echo '<p class="alert-box alert round">The email address and password entered do not match our records image<br><a href="#" class="close">&times;</p>';
+			echo '<p class="alert-box alert round">The email address and password entered do not match our records<br><a href="#" class="close">&times;</p>';
 		}
 	} else {
 		//If there was a  problem
@@ -50,7 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	mysqli_close($dbcon);
 }//End of Submit Conditional
 ?>
-<h2>Login</h2>
+<h2 class="text-center">Login</h2>
 <!--display the form on the screen-->
 <form action="login.php" method="post">
   <div class="row"><!--Beginning of First Row-->
