@@ -1,4 +1,10 @@
-<?php include 'html5req.php';
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.js"></script>
+<script src="http://cdn.foundation5.zurb.com/foundation.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
+<script>
+    $(document).foundation();
+</script>
+<?php include 'login-header.php';
 /*This section processes submissions from the login form*/
 /*Check if the form has been submitted*/
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -25,6 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		/*Run the query and assign it to the variable $result*/
 		$result = mysqli_query($dbcon, $q);
 		/*Count the number of rows that match the email/password combination*/
+
 		if (@mysqli_num_rows($result) == 1) {
 			/*If one database row (record) matches the input: -
 			Start the session, fetch the record and insert the three values in an array
