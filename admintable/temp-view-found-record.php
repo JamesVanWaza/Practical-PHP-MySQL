@@ -12,6 +12,7 @@ ob_end_flush();
 <?php
 // This code retrieves particular records from the users table
 require 'mysqli-connect.php'; // Connect to the database
+
 /*The query retrieves all the James Smith in the database*/
 $q = "SELECT lname, fname, email, DATE_FORMAT(registration_date, '%M %d, %Y') AS regdat, user_id
 FROM admintable
