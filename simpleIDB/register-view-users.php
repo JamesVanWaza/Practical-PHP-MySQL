@@ -11,23 +11,19 @@ $result = @mysqli_query($dbcon, $q); // Run the query.
 if ($result) {
 	// If it ran OK, display the records.
 	// Table header.
-	echo "<table>
-		<tr>
-		<td><b>Name</b></td>
-		<td><b>Date Registered</b></td>
-		</tr>
-		</table>";
+	echo '<table>
+<tr><td><b>Name</b></td><td><b>Date Registered</b></td></tr>';
+// Fetch and print all the records:                                                  #3
 
-	/*Fetch and Print all the records*/
 	while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
-		echo '<tr><td>' . $row['name'] . '</td><td>' . $row['regdat'] . '</td></tr>';
-	}
-	echo '</table>'; // Close the table.
+		echo '<tr><td>' . $row['name'] . '</td><td>' . $row['regdat'] . '</td></tr>';}
+	echo '</table>'; // Close the table so that it is ready for displaying.
 	mysqli_free_result($result); // Free up the resources.
 } else {
 	// If it did not run OK.
 	// Public message:
 	echo '<p class="alert-box alert round">The current users could not be retrieved. We apologize for any inconvenience.</p>';
+
 	// Debugging message:
 	echo '<p>' . mysqli_error($dbcon) . '<br><br />Query: ' . $q . '</p>';
 }// End of if ($r) IF.

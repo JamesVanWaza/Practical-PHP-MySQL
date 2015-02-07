@@ -14,22 +14,14 @@ $result = @mysqli_query($dbcon, $q); //Run the query
 if ($result) {
 	//If it ran OK, display thr records
 	/*Table Header*/
-	echo "<table>
-		<tr>
-		<td><b>Name</b></td>
-		<td><b>Date Registered</b></td>
-		</tr>
-		</table>";
+	echo '<table>
+<tr><td><b>Name</b></td><td><b>Date Registered</b></td></tr>';
+// Fetch and print all the records:                                                  #3
 
-	/*Fetch and Print all the records*/
 	while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
-		echo '<tr>
-			<td>' . $row['name'] . '</td>
-			<td>' . $row['regdat'] . '</td>
-			</tr>' . '<br>';
-	}
-	echo '</table>'; //Close the table so that it is ready for displaying.
-	mysqli_free_result($result); //Free up the resources
+		echo '<tr><td>' . $row['name'] . '</td><td>' . $row['regdat'] . '</td></tr>';}
+	echo '</table>'; // Close the table so that it is ready for displaying.
+	mysqli_free_result($result); // Free up the resources.
 } else {
 	/*If if did not run OK*/
 	echo "<p class='alert-box alert round'>The current users could not be retrieved. We apologize for any inconvience.</p>";
