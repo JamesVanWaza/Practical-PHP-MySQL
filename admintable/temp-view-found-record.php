@@ -1,12 +1,12 @@
 <?php
-session_start();
 ob_start();
+session_start();
 include 'header-admin.php';
 if (!isset($_SESSION['user_level']) or ($_SESSION['user_level'] != 1)) {
 	header("Location: login.php");
 	exit();
-	ob_end_flush();
 }
+ob_end_flush();
 ?>
 <h2 class="text-center">Search Results</h2>
 <?php

@@ -5,8 +5,8 @@ include 'header-admin.php';
 if (!isset($_SESSION['user_level']) or ($_SESSION['user_level'] != 1)) {
 	header("Location: login.php");
 	exit();
-	ob_end_flush();
 }
+ob_end_flush();
 ?>
 <h2 class="text-center">Registered members displayed four at a time</h2>
 <?php
