@@ -1,5 +1,4 @@
-<?php include('login-header.php'); ?>
-<?php
+<?php include('login-header.php');
 /*This section processes submissions from the login form*/
 /*Check if the form has been submitted*/
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
