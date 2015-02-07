@@ -13,14 +13,14 @@ if (!isset($_SESSION['user_level']) or ($_SESSION['user_level'] != 1)) {
 /*This script retrieves all the records from the users table*/
 require 'mysqli-connect.php'; /*Connect to the database*/
 
-echo '<p>If no record is shown, this is because you had an incorrect or missing entry in the search form.<br>Click the back button on the browser and try again</p>';
-$fname = $_POST['fname'];
-$lname = $_POST['lname'];
+//echo '<p>If no record is shown, this is because you had an incorrect or missing entry in the search form.<br>Click the back button on the browser and try again</p>';
+//$fname = $_POST['fname'];
+//$lname = $_POST['lname'];
 
 /*Make the Query Using Hard Coded Names*/
-$q = "SELECT lname, fname, email
-	DATE_FORMAT(registration_date, '%M %D, %Y') AS regdat FROM admintable WHERE lname='Smith' AND fname='James'
-	ORDER BY registration_date ASC";
+$q = "SELECT lname, fname, email, DATE_FORMAT(registration_date, '%M %D, %Y') AS regdat
+		FROM admintable WHERE lname='Smith' AND fname='James'
+		ORDER BY registration_date ASC";
 $result = @mysqli_query($dbcon, $q); //Run the query
 
 if ($result) {
@@ -57,5 +57,10 @@ if ($result) {
 	/*Debug Message*/
 	echo '<p>' . mysqli_error($dbcon) . '<br><br>Query: ' . $q . '</p>';
 }//End of if ($result)
+$q = "SELECT COUNT(user_id) FROM admintable";
+$result = @mysqli_query($dbcon, $q); //Run the query
+$row = $mysqli_fetch_array($result, MYSQLI_NUM);
+$members = $row[0];
 mysqli_close($dbcon); //Close the databse function
+echo "<p>" . "Total Membership: $members" . "</p>";
 ?>
