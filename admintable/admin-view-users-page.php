@@ -1,9 +1,11 @@
 <?php
+ob_start();
 session_start();
 include 'login-header.php';
 if (!isset($_SESSION['user_level']) or ($_SESSION['user_level'] != 1)) {
 	header("Location: login.php");
 	exit();
+	ob_end_flush();
 }
 ?>
 <h2 class="text-center">Registered members displayed four at a time</h2>
