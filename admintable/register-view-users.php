@@ -1,13 +1,21 @@
-<?php include 'header.php';
-include 'nav.php';?>
-<h2>These are the registered users</h2>
+<?php
+ob_start();
+session_start();
+if (!isset($_SESSION['user_level']) or ($_SESSION['user_level'] != 1)) {
+	header("Location: login.php");
+	exit();
+}
+include 'header-admin.php';
+ob_end_flush();
+?>
+<h2 class="text-center">These are the registered users</h2>
 <?php
 /*This script retrieves all the records from the users table*/
 require 'mysqli-connect.php'; /*Connect to the database*/
 
 /*Make the Query*/
 $q = "SELECT CONCAT(lname, ', ', fname) AS name,
-	DATE_FORMAT(registration_date, '%M %D, %Y') AS regdat FROM users
+	DATE_FORMAT(registration_date, '%M %D, %Y') AS regdat FROM admintable
 	ORDER BY registration_date ASC";
 $result = @mysqli_query($dbcon, $q); //Run the query
 
