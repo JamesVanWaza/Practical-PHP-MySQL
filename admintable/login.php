@@ -1,4 +1,5 @@
-<?php include 'login-header.php';
+<?php
+include 'login-header.php';
 /*This section processes submissions from the login form*/
 /*Check if the form has been submitted*/
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -30,6 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			/*If one database row (record) matches the input: -
 			Start the session, fetch the record and insert the three values in an array
 			 */
+			ob_start();
 			session_start();
 			$_SESSION = mysqli_fetch_array($result, MYSQLI_ASSOC);
 			//Ensure that the user level is an integer.
@@ -40,6 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			exit(); //Cancel the rest of the script
 			mysqli_free_result($result);
 			mysqli_close($dbcon);
+			ob_end_flush();
 		} else {
 			//No Match was made
 			echo '<p class="alert-box alert round">The email address and password entered do not match our records<br><a href="#" class="close">&times;</p>';

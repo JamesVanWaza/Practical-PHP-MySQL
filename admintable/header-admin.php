@@ -1,4 +1,6 @@
-<?php include 'html5req.php';?>
+<?php
+ob_start();
+include 'html5req.html';?>
 <body>
     <div id="header">
     <h1>This is the Header</h1>
@@ -12,3 +14,4 @@
     </nav>
 </div>
 </body>
+<?php ob_end_flush();?>
