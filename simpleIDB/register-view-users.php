@@ -1,10 +1,6 @@
-<body>
-<div id="container">
-<?php include "header.php";?>
-<?php include "nav.php";?>
-<div id="content"><!-- Start of the page-specific content. -->
+<?php include 'header.php';
+include 'nav.php';?>
 <h2>These are the registered users</h2>
-<p>
 <?php
 // This script retrieves all the records from the users table.
 require 'mysqli-connect.php'; // Connect to the database.
@@ -37,7 +33,3 @@ if ($result) {
 }// End of if ($r) IF.
 mysqli_close($dbcon); // Close the database connection.
 ?>
-</p>
-</div><!-- End of the page-specific content. -->
-</div>
-</body>
