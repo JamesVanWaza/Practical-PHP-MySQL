@@ -28,9 +28,10 @@ ob_end_flush();
 ?>"/>
       </label>
     </div>
-  </div><!--End of First Row-->
-      <div class="large-12 small-12 columns">
-  	<input type="submit" id="submit" name="submit" class="button [radius round]" value="Search">
+     <div class="large-12 small-12 columns">
+    <input type="submit" id="submit" name="submit" class="button [radius round]" value="Search">
   </div>
-    </div><!--End of Third Row-->
+    </div>
+  </div><!--End of First Row-->
+
 </form>
