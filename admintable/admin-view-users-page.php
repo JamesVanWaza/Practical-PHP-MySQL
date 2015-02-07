@@ -20,7 +20,7 @@ if (isset($_GET['p']) && is_numeric
 } else {
 //use the next block of code to calculate the number of pages
 	//First, check for the total number of records
-	$q = "SELECT COUNT(user_id) FROM users";
+	$q = "SELECT COUNT(user_id) FROM admintable";
 	$result = @mysqli_query($dbcon, $q);
 	$row = @mysqli_fetch_array($result, MYSQLI_NUM);
 	$records = $row[0];
@@ -59,8 +59,8 @@ if ($result) {
 // Fetch and print the records:
 	while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
 		echo '<tr>
-<td><a href="edit_record.php?id=' . $row['user_id'] . '">Edit</a></td>
-<td><a href="delete_record.php?id=' . $row['user_id'] . '">Delete</a></td>
+<td><a href="edit-record.php?id=' . $row['user_id'] . '">Edit</a></td>
+<td><a href="delete-record.php?id=' . $row['user_id'] . '">Delete</a></td>
 <td>' . $row['lname'] . '</td>
 <td>' . $row['fname'] . '</td>
 <td>' . $row['email'] . '</td>
@@ -90,11 +90,11 @@ if ($pages > 1) {
 	$current_page = ($start / $pagerows) + 1;
 //If the page is not the first page then create a Previous link
 	if ($current_page != 1) {
-		echo '<a href="register-view_users.php?s=' . ($start - $pagerows) . '&p=' . $pages . '">Previous</a> ';
+		echo '<a href="register-view-users.php?s=' . ($start - $pagerows) . '&p=' . $pages . '">Previous</a> ';
 	}
 //Create a Next link
 	if ($current_page != $pages) {
-		echo '<a href="register-view_users.php?s=' . ($start + $pagerows) . '&p=' . $pages . '">Next</a> ';
+		echo '<a href="register-view-users.php?s=' . ($start + $pagerows) . '&p=' . $pages . '">Next</a> ';
 	}
 	echo '</p>';
 }
