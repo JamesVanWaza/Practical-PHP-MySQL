@@ -74,7 +74,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       </label><span>Between 8 and 12 characters</span>
     </div>
       <div class="large-12 small-12 columns">
-    <input type="submit" id="submit" name="submit" class="button [radius round]" value="Register">
+    <input type="submit" id="submit" name="submit" class="button [radius round alert]" value="Login">
   </div>
     </div><!--End of Third Row-->
 </form>
