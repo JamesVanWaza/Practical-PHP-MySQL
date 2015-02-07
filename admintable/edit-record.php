@@ -1,11 +1,12 @@
-<?php include 'header.php';?>
-<?php include 'nav.php';?>
 <?php
+ob_start();
 session_start();
 if (!isset($_SESSION['user_level']) or ($_SESSION['user_level'] != 1)) {
 	header("Location: login.php");
 	exit();
 }
+include 'header-admin.php';
+ob_end_flush();
 ?>
 <h2 class="text-center">Edit a Record</h2>
 <?php
@@ -19,7 +20,6 @@ if ((isset($_GET['id'])) && (is_numeric($_GET['id']))) {
 	$id = $_POST['id'];
 } else {
 	echo "<p class='alert-box alert round'>This page has been accessed in error</p>";
-	include 'footer.php';
 	exit();
 }
 require 'mysqli-connect.php';
@@ -49,11 +49,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		/*If everything is ok, make the update query
 		Check that the email is not already in the users table
 		 */
-		$q = "UPDATE users SET fname='$fn', lname='$ln', email='$e' WHERE user_id=$id LIMIT 1";
+		$q = "UPDATE admintable SET fname='$fn', lname='$ln', email='$e' WHERE user_id=$id LIMIT 1";
 		$result = @mysqli_query($dbcon, $q); // Run the query.
 		if (mysqli_affected_rows($dbcon) == 1) {
 			/*If it ran OK Echo a message if the edit was satisfactory*/
-			echo "<h3>The user has been edited</h3>";
+			echo "<h3 class='text-center'>The user has been edited</h3>";
 		} else {
 			/*Echo a message if the query failed*/
 			echo '<p class="alert-box alert round">The user could not be edited due to a system error<br>We apoligize for any inconvience</p>'; /*Error message*/
@@ -76,7 +76,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 }//End of if(empty($errors)) section
 
 //Select the record
-$q = "SELECT fname, lname, email FROM users WHERE user_id=$id";
+$q = "SELECT fname, lname, email FROM admintable WHERE user_id=$id";
 $result = @mysqli_query($dbcon, $q);
 if (mysqli_num_rows($result) == 1) {
 	/*Valid user ID, display the form
@@ -114,5 +114,4 @@ if (mysqli_num_rows($result) == 1) {
 	echo '<p class="alert-box alert round">This page has been accessed in error';
 }
 mysqli_close($dbcon);
-include 'footer.php';
 ?>
