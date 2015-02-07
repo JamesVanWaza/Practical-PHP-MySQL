@@ -8,7 +8,7 @@ if (!isset($_SESSION['user_level']) or ($_SESSION['user_level'] != 1)) {
 include 'header-admin.php';
 ob_end_flush();
 ?>
-<h3>Search for a Record</h3>
+<h3 class="text-center">Search for a Record</h3>
 <!--display the form on the screen-->
 <form action="view-found-record.php" method="post">
   <div class="row"><!--Beginning of First Row-->
