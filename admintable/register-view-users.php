@@ -20,8 +20,8 @@ if ($result) {
 		<td><b>Date Registered</b></td>
 		</tr>
 		</table>";
-	/*Fetch and Print all the records*/
 
+	/*Fetch and Print all the records*/
 	while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
 		echo '<tr>
 			<td>' . $row['name'] . '</td>
