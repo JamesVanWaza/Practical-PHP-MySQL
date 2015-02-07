@@ -1,4 +1,4 @@
-<?php include 'header.php';
+<?php include 'html5req.php';
 /*This section processes submissions from the login form*/
 /*Check if the form has been submitted*/
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
