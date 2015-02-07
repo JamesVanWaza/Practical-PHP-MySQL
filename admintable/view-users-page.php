@@ -12,8 +12,8 @@ if (!isset($_SESSION['user_level']) or ($_SESSION['user_level'] != 1)) {
 require 'mysqli-connect.php'; /*Connect to the database*/
 
 /*Make the Query*/
-$q = "SELECT lname, fname, email
-	DATE_FORMAT(registration_date, '%M %D, %Y') AS regdat FROM users
+$q = "SELECT lname, fname, email,
+	DATE_FORMAT(registration_date, '%M %D, %Y') AS regdat FROM admintable
 	ORDER BY registration_date ASC";
 $result = @mysqli_query($dbcon, $q); //Run the query
 
@@ -34,8 +34,8 @@ if ($result) {
 
 	while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
 		echo '<tr>
-			<td><a href="edit_user.php?id=' . $row['user_id'] . ' ">Edit</a></td>
-			<td><a href="delete_user.php?id=' . $row['user_id'] . ' ">Delete</a></td>
+			 <td><a href="edit-user.php?id=' . $row['user_id'] . '">Edit</a></td>
+    		<td><a href="delete-user.php?id=' . $row['user_id'] . '">Delete</a></td>
 			<td>' . $row['lname'] . '</td>
 			<td>' . $row['fname'] . '</td>
 			<td>' . $row['email'] . '</td>
