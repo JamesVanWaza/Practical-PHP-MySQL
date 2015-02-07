@@ -36,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			$_SESSION['user_level'] = (int) $_SESSION['user_level'];
 			/*Use a ternary operator to set the URL*/
 			$url = ($_SESSION['user_level'] === 1) ? 'admin-page.php' : 'members-page.php';
-			header('Location: ' . $url); /*Make the browser load either the members or the admin page*/
+			header('Location: ' . $url); /*Make the browser load either the members or the admin pag*/
 			exit(); //Cancel the rest of the script
 			mysqli_free_result($result);
 			mysqli_close($dbcon);
@@ -78,9 +78,3 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   </div>
     </div><!--End of Third Row-->
 </form>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.js"></script>
-<script src="http://cdn.foundation5.zurb.com/foundation.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
-<script>
-    $(document).foundation();
-</script>
