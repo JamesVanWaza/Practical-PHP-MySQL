@@ -24,7 +24,7 @@ if ($result) {
 	/*Table Header*/
 	echo '<table>
 <tr><td><b>Name</b></td><td><b>Date Registered</b></td></tr>';
-// Fetch and print all the records:                                                  #3
+// Fetch and print all the records:
 
 	while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
 		echo '<tr><td>' . $row['name'] . '</td><td>' . $row['regdat'] . '</td></tr>';}
