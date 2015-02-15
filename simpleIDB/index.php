@@ -1,8 +1,9 @@
 <body>
     <div id='container'>
-        <?php include('header.php'); ?>
-        <?php include( 'nav.php'); ?>
-        <?php include( 'info-col.php'); ?>
+        <?php include('header.php'); 
+            include('nav.php'); 
+            include('info-col.php'); 
+        ?>
         <div id='content'>
             <!--Start of page content.-->
             <h2>This is the Home Page</h2>
