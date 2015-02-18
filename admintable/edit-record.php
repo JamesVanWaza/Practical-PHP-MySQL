@@ -13,7 +13,7 @@ ob_end_flush();
 // After clicking the Edit link in the found_record.php page, the editing interface appears
 // The code looks for a valid user ID, either through GET or POST                          #1
 if ((isset($_GET['id'])) && (is_numeric($_GET['id']))) {
-	// From view_users.php
+	// From view-users.php
 	$id = $_GET['id'];
 } elseif ((isset($_POST['id'])) && (is_numeric($_POST['id']))) {
 	// Form submission
