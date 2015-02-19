@@ -10,7 +10,7 @@
 	ORDER BY registration_date ASC";
 	$result = @mysqli_query($dbcon, $q); //Run the query
 
-	if ($result) { //If it ran OK, display thr records
+	if ($result) { //If it ran OK, display the records
 		/*Table Header*/
 		echo "<table id='myTable'>
 		<tr>
