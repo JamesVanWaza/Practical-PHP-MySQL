@@ -1,5 +1,5 @@
 body{
-    background-color: bisque;
+    background-color: white;
 	margin: 1%;
 	font-family: Quattrocento;
 }
@@ -19,5 +19,5 @@ ul.sidenav li a:hover{
 }
 h2{
 	font-family: 'Poiret One', cursive;
-    color: #C45D67;
+    color: gree;
 }
