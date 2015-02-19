@@ -1,0 +1,1 @@
+parts start php5-apache2 mysql phpmyadmin

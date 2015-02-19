@@ -49,7 +49,8 @@
 			} else { /*If it encountered a problem
 				Error Message
 			*/
-				echo "<h2>System Error</h2><p class='alert-box alert round'>You could not be registered due to a system error. We apologize for any inconvenience.</p>";
+				echo '<div data-alert class="alert-box alert round">
+			<p class="text-center">You could not be registered due to a system error. We apologize for any inconvenience.<a href="#" class="close">&times;</a></p></div>';
 				//Debugging message
 				echo '<p>' . mysqli_error($dbcon) . '<br><br>Query: ' . $q . '</p>';
 			}
@@ -60,11 +61,13 @@
 			}
 			else { //Report the errors
 				echo '<h2>Error!</h2>
-<p class="alert-box alert round">The following error(s) occurred:<br>';
+<div data-alert class="alert-box alert round">
+            <p class="text-center">The following error(s) occurred:<br>
+               <a href="#" class="close">&times;</a>';
 foreach ($errors as $msg) { // Print each error.                             #12
 	echo " - $msg<br>\n";
 }
-	echo '<p class="alert-box alert round"><h3>Please try again.</h3><p><br></p>';
+	echo '<p class="text-center"><h3>Please try again.</h3><p><br></p></div>';
 			}
 		}// End of if(empty($errors))
 		mysqli_close($dbcon);// Close the database connection

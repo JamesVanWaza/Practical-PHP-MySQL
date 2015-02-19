@@ -47,8 +47,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {                                     
 if (empty($errors)) { // If no problems encountered, register user in the database
 
 // Make the query
-$q = "INSERT INTO users (user_id, fname, lname, email, psword, registration_date)
-VALUES (' ', '$fn', '$ln', '$e', SHA1('$p'), NOW() )";
+/*Ability to add apostrophes in a database*/
+$q = 'INSERT INTO users (user_id, fname, lname, email, psword, registration_date)';
+$q .= "VALUES (`user_id`, '$fn', '$ln', '$e', SHA1('$p'), NOW() )";
 
 $result = @mysqli_query ($dbcon, $q); // Run the query.
 
@@ -71,7 +72,7 @@ echo '<p>' . mysqli_error($dbcon) . '<br><br>Query: ' . $q . '</p>';
     exit();
     }
 else { // Display the errors
-        echo '<h2>Error!</h2>
+        echo '<h2 class="text-center">Error!</h2>
         <p class="alert-box alert round">The following error(s) occurred:<br>';
         foreach ($errors as $msg) { // Print each error.                             #12
             echo " - $msg<br>\n";
@@ -82,7 +83,7 @@ else { // Display the errors
 ?>
 <h2>Register</h2>
 <!--display the form on the screen-->
-<form action="register-page.php" method="post">
+<form action="register-page-apos.php" method="post">
   <div class="row"><!--Beginning of First Row-->
   	<div class="large-6 medium-6 small-12 columns">
       <label>First Name
@@ -118,3 +119,9 @@ else { // Display the errors
   </div>
     </div><!--End of Third Row-->
 </form>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.js"></script>
+    <script src="http://cdn.foundation5.zurb.com/foundation.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
+    <script>
+        $(document).foundation();
+    </script>

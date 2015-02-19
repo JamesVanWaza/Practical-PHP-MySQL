@@ -16,5 +16,5 @@
         $(document).foundation();
     </script>
 </head>
-
 <body>
+    </body></html>
