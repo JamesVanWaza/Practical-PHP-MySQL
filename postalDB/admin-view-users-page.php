@@ -48,8 +48,8 @@ if (isset($_GET['s']) && is_numeric($_GET['s'])) {
 }
 
 /*Make the Query*/
-$q = "SELECT lname, fname, email
-	DATE_FORMAT(registration_date, '%M %D, %Y') AS regdat, class, paid FROM postaldb
+$q = "SELECT lname, fname, email,
+	DATE_FORMAT(registration_date, '%M %D, %Y') AS regdat, class, paid, user_id FROM postaldb
 	ORDER BY registration_date DESC LIMIT $start, $pagerows";
 $result = @mysqli_query($dbcon, $q); //Run the query
 
@@ -66,8 +66,7 @@ if ($result) {
 		<td><b>Date Registered</b></td>
 		<td><b>Class</b></td>
 		<td><b>Paid</b></td>
-		</tr>
-		</table>";
+		</tr>";
 	/*Fetch and Print all the records*/
 
 	while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
