@@ -106,7 +106,7 @@ if (mysqli_num_rows($result) == 1) {
 	// Get the user's information:
 	$row = mysqli_fetch_array($result, MYSQLI_NUM);
 	// Create the form:
-	echo '<form action="edit_record.php" method="post">
+	echo '<form action="edit-record.php" method="post">
 <p><label class="label" for="fname">First Name:</label><input class="fl-left" id="fname" type="text" name="fname" size="30" maxlength="30" value="' . $row[0] . '"></p>
 <br><p><label class="label" for="lname">Last Name:</label><input class="fl-left" type="text" name="lname" size="30" maxlength="40" value="' . $row[1] . '"></p>
 <br><p><label class="label" for="email">Email Address:</label><input class="fl-left" type="text" name="email" size="30" maxlength="50" value="' . $row[2] . '"></p>
