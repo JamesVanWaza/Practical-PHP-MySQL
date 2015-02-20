@@ -15,7 +15,7 @@ ob_end_flush();
     echo '<p>If no record is shown, this is because of an incorrect or missing entry in 
 the search form.<br>Click the Search button and try again</p>';
 $fname=$_POST['fname'];
-$fname = mysqli_real_escape_string($dbcon, $fname
+$fname = mysqli_real_escape_string($dbcon, $fname);
 $lname=$_POST['lname'];
 $lname = mysqli_real_escape_string($dbcon, $lname);
 $q = "SELECT title, lname, fname, addr1, addr2, city, county, pcode, phone, user_id 
