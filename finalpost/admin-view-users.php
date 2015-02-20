@@ -24,6 +24,8 @@
 
 		while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
 			echo '<tr>
+<td><a href="edit-record.php?id=' . $row['user_id'] . '">Edit</a></td>
+<td><a href="delete-record.php?id=' . $row['user_id'] . '">Delete</a></td>
 			<td>' . $row['name'] . '</td>
 			<td>' . $row['regdat'] . '</td>
 			</tr>' . '<br>' ;
