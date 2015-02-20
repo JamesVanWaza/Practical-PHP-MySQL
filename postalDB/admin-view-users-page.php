@@ -49,7 +49,7 @@ if (isset($_GET['s']) && is_numeric($_GET['s'])) {
 
 /*Make the Query*/
 $q = "SELECT lname, fname, email,
-	DATE_FORMAT(registration_date, '%M %D, %Y') AS regdat, class, paid, user_id FROM postaldb
+	DATE_FORMAT(registration_date, '%M %D, %Y') AS regdat, class, paid, user_id FROM finalpost
 	ORDER BY registration_date DESC LIMIT $start, $pagerows";
 $result = @mysqli_query($dbcon, $q); //Run the query
 

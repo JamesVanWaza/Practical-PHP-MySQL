@@ -1,17 +1,17 @@
-<?php include('header-members.php'); ?>
 <?php
-	session_start();
-	if (!isset($_SESSION['user_level']) or($_SESSION['user_level']) !=0) {
-		header('Location: login.php');
-		exit();
-	}
-?>
-<?php
-	echo '<h2>Welcome to the Members Page';
-	if (isset($_SESSION['fname'])) {
-		echo "{$_SESSION['fname']}";
-	}
-	echo '</h2>';
+ob_start();
+session_start();
+if (!isset($_SESSION['user_level']) or ($_SESSION['user_level'] != 1)) {
+	header("Location: login.php");
+	exit();
+}
+include 'header-members.php';
+echo '<h2>Welcome to the Members Page';
+if (isset($_SESSION['fname'])) {
+	echo " " . "{$_SESSION['fname']}";
+}
+echo '</h2>';
+ob_end_flush();
 ?>
 <h3>Members Events</h3>
 <p>

@@ -1,6 +1,4 @@
-<?php include('header.php'); ?>
-<?php include('register-header.php'); ?>
-<?php
+<?php include('register-header.php');
 	// This script performs an INSERT query that adds a record to the users table.
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {                                            #1
 
