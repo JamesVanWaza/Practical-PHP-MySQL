@@ -23,7 +23,7 @@ if (isset($_GET['p']) && is_numeric($_GET['p'])) {
 } else {
 	/*Use the next block of code to calculate the number of pages*/
 	/*First, check for the total number of records*/
-	$q = "SELECT COUNT(user_id) FROM users";
+	$q = "SELECT COUNT(user_id) FROM postaldb";
 	$result = @mysqli_query($dbcon, $q);
 	$row = @mysqli_fetch_array($result, MYSQLI_NUM);
 	$records = $row[0];
@@ -92,7 +92,7 @@ if ($result) {
 	echo '<p>' . mysqli_error($dbcon) . '<br><br>Query: ' . $q . '</p>';
 }//End of if ($result)
 /*Now display the figure for the total number of records/members*/
-$q = "SELECT COUNT(user_id) FROM users";
+$q = "SELECT COUNT(user_id) FROM postaldb";
 $result = @mysqli_query($dbcon, $q);
 $row = @mysqli_fetch_array($result, MYSQLI_NUM);
 $members = $row[0];
