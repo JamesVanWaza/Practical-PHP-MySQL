@@ -1,5 +1,3 @@
-<meta charset="utf-8">
-<?php //include('header.php'); ?>
 <?php include('nav.php');
 	// This script performs an INSERT query that adds a record to the users table.
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {                                            #1
