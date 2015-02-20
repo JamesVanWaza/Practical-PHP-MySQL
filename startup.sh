@@ -1,1 +1,3 @@
-parts start php5-apache2 mysql phpmyadmin
+parts install php5-apache2 
+parts install mysql 
+parts install phpmyadmin

@@ -13,10 +13,15 @@ ob_end_flush();
 // This code retrieves particular records from the users table
 require 'mysqli-connect.php'; // Connect to the database
 
+echo "<p>" . "If no record is shown, this is because you had an incorrect or missing entry in the search form" . "<br>" . "Click the back button on the browser and try again" . "</p>";
+$fname = $_POST['fname'];
+$lname = $_POST['lname'];
+$fname = mysqli_real_escape_string($dbcon, $fname);
+$lname = mysqli_real_escape_string($dbcon, $lname);
 /*The query retrieves all the James Smith in the database*/
 $q = "SELECT lname, fname, email, DATE_FORMAT(registration_date, '%M %d, %Y') AS regdat, user_id
 FROM admintable
-WHERE lname='Smith'AND fname='James'
+WHERE lname='$lname'AND fname='$fname'
 ORDER BY registration_date ASC ";
 $result = @mysqli_query($dbcon, $q); // Run the query
 if ($result) {
@@ -50,10 +55,4 @@ if ($result) {
 // Debugging message
 	echo '<p>' . mysqli_error($dbcon) . '<br><br>Query: ' . $q . '</p>';
 }// End of if ($result). Now display the figure for total number of records/members
-$q = "SELECT COUNT(user_id) FROM users";
-$result = @mysqli_query($dbcon, $q);
-$row = @mysqli_fetch_array($result, MYSQLI_NUM);
-$members = $row[0];
-mysqli_close($dbcon); // Close the database connection
-echo "<p>Total membership: $members</p>";
 ?>

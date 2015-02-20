@@ -6,5 +6,5 @@
 	$cereals[3] = "wheat";
 
 
-	echo("$cereals[0]&nbsp;" . "$cereals[1] " . "$cereals[2] "3 . $cereals[3]);
+	echo("$cereals[0]&nbsp;" . "$cereals[1] " . "$cereals[2] " . $cereals[3]);
 ?>
