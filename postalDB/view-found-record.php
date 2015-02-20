@@ -58,5 +58,10 @@ if ($result) {
 	/*Debug Message*/
 	echo '<p>' . mysqli_error($dbcon) . '<br><br>Query: ' . $q . '</p>';
 }//End of if ($result)
+$q = "SELECT COUNT(user_id) FROM postaldb";
+$result = @mysqli_query($dbcon, $q); //Run the query
+$row = @mysqli_fetch_array($result, MYSQLI_NUM);
+$members = $row[0];
 mysqli_close($dbcon); //Close the databse function
+echo "<p>Total Membership:" . $members . "</p>";
 ?>
