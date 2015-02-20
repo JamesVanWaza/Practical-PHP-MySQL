@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!isset($_SESSION['user_level']) or ($_SESSION['user_level'] != 1)) {
-	header("Location: login.php");
+	header("Location: header-members.php");
 	exit();
 }
 ?>
@@ -10,12 +10,13 @@ if (!isset($_SESSION['user_level']) or ($_SESSION['user_level'] != 1)) {
 // After clicking the Edit link in the register_found_record.php page. This editing interface appears
 // Look for a valid user ID, either through GET or POST:
 if ((isset($_GET['id'])) && (is_numeric($_GET['id']))) {
-	// From view_users.php
+	// From view-users.php
 	$id = $_GET['id'];
 } elseif ((isset($_POST['id'])) && (is_numeric($_POST['id']))) {
 	// Form submission.
 	$id = $_POST['id'];
 } else {
+	// No valid ID, kill the script.
 	// No valid ID, kill the script.
 	echo "<p class='alert-box alert round'>This page has been accessed in error</p>";
 	include 'footer.php';
@@ -92,7 +93,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 				// Echo a message if the edit was satisfactory:
 				echo '<h3>The user has been edited.</h3>';
 			} else {// Echo a message if the query failed.
-				echo '<p class="alert-box alert round">The user could not be edited due to a system error<br>We apoligize for any inconvience</p>'; // Public message.
+				echo '<p class="alert-box alert round">The user could not be edited due to a system error. We apologize for any inconvenience.</p>'; // Public message.
 				echo '<p>' . mysqli_error($dbcon) . '<br />Query: ' . $q . '</p>'; // Debugging message.
 			}
 			//} else { // Already registered.
@@ -100,7 +101,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		}
 	} else {
 		// Display the errors.
-		'<p class="alert-box alert round">The following errors occured:<br>';
+		echo '<p class="alert-box alert round">The following error(s) occurred:<br>';
 		foreach ($errors as $msg) {
 			// Echo each error.
 			echo " - $msg<br />\n";
@@ -155,7 +156,7 @@ if (mysqli_num_rows($result) == 1) {
 </form>';
 } else {
 	// The user could not be validated
-	echo '<p class="alert-box alert round">This page has been accessed in error';
+	echo '<p class="alert-box alert round">This page has been accessed in error.</p>';
 }
 mysqli_close($dbcon);
 include 'footer.php';
