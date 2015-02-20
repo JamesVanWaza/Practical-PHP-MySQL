@@ -29,6 +29,7 @@ if ($result) {
 		<td><b>Delete</b></td>
 		<td><b>Last Name</b></td>
 		<td><b>First Name</b></td>
+        <td><b>Email</b></td>
 		<td><b>Date Registered</b></td>
 		</tr>
 		";
