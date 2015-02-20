@@ -39,7 +39,7 @@ if ($result) {
 // Fetch and display the records
 	while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
 		echo '<tr>
-    <td><a href="edit_address.php?id=' . $row['user_id'] . '">Edit</a></td>
+    <td><a href="edit-address.php?id=' . $row['user_id'] . '">Edit</a></td>
     <td><a href="delete-record.php?id=' . $row['user_id'] . '">Delete</a></td>
     <td>' . $row['title'] . '</td>
     <td>' . $row['lname'] . '</td>
