@@ -5,7 +5,7 @@ if (!isset($_SESSION['user_level']) or ($_SESSION['user_level'] != 1)) {
 	header("Location: login.php");
 	exit();
 }
-include 'nav.php';
+include 'header-members.php';
 ob_end_flush();
 ?>
 <h2>Edit a Record</h2>
@@ -52,7 +52,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		/*If everything is ok, make the update query
 		Check that the email is not already in the users table
 		 */
-		$q = "UPDATE logindb SET fname='$fn', lname='$ln', email='$e' WHERE user_id=$id LIMIT 1";
+		$q = "UPDATE finalpost SET fname='$fn', lname='$ln', email='$e' WHERE user_id=$id LIMIT 1";
 		$result = @mysqli_query($dbcon, $q); // Run the query.
 		if (mysqli_affected_rows($dbcon) == 1) {
 			/*If it ran OK Echo a message if the edit was satisfactory*/
@@ -79,7 +79,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 }//End of if(empty($errors)) section
 
 //Select the record
-$q = "SELECT fname, lname, email FROM logindb WHERE user_id=$id";
+$q = "SELECT fname, lname, email FROM finalpost WHERE user_id=$id";
 $result = @mysqli_query($dbcon, $q);
 if (mysqli_num_rows($result) == 1) {
 	/*Valid user ID, display the form
