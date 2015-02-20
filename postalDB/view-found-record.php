@@ -15,7 +15,9 @@ require 'mysqli-connect.php'; /*Connect to the database*/
 
 echo '<p>If no record is shown, this is because you had an incorrect or missing entry in the search form.<br>Click the back button on the browser and try again</p>';
 $fname = $_POST['fname'];
+$fname = mysqli_real_escape_string($dbcon, $fname);
 $lname = $_POST['lname'];
+$lname = mysqli_real_escape_string($dbcon, $lname);
 
 /*Make the Query Using Hard Coded Names*/
 $q = "SELECT lname, fname, email, DATE_FORMAT(registration_date, '%M %D, %Y')
@@ -39,8 +41,8 @@ if ($result) {
 
 	while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
 		echo '<tr>
-			<td><a href="edit-user.php?id=' . $row['user_id'] . ' ">Edit</a></td>
-			<td><a href="delete-user.php?id=' . $row['user_id'] . ' ">Delete</a></td>
+			<td><a href="edit-record.php?id=' . $row['user_id'] . ' ">Edit</a></td>
+			<td><a href="delete-record.php?id=' . $row['user_id'] . ' ">Delete</a></td>
 			<td>' . $row['lname'] . '</td>
 			<td>' . $row['fname'] . '</td>
 			<td>' . $row['email'] . '</td>
