@@ -29,8 +29,8 @@ if ($result) {
         <td><b>Title</b></td>
         <td><b>Last Name</b></td>
         <td><b>First Name</b></td>
-        <td><b>Addrs1</b></td>
-        <td><b>Addrs2</b></td>
+        <td><b>Address 1</b></td>
+        <td><b>Address 2</b></td>
         <td><b>City</b></td>
         <td><b>County</b></td>
         <td><b>Pcode</b></td>
