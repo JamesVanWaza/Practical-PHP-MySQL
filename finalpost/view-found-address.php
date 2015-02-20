@@ -1,15 +1,17 @@
-<?php include('nav.php'); ?>
 <?php
-	session_start();
-	if (!isset($_SESSION['user_level']) or($_SESSION['user_level']) !=1) {
-	    header('Location: login.php');
-		exit();
-	}
+ob_start();
+session_start();
+if (!isset($_SESSION['user_level']) or ($_SESSION['user_level'] != 1)) {
+    header("Location: login.php");
+    exit();
+}
+include 'nav.php';
+ob_end_flush();
 ?>
+<h2>Search Results</h2>
 <?php
 // This script fetches selected records from the users table
     require ('mysqli-connect.php'); // Connect to the database
-<<<<<<< HEAD
     echo '<p>If no record is shown, this is because of an incorrect or missing entry in 
 the search form.<br>Click the Search button and try again</p>';
 $fname=$_POST['fname'];
@@ -17,7 +19,7 @@ $fname = mysqli_real_escape_string($dbcon, $fname
 $lname=$_POST['lname'];
 $lname = mysqli_real_escape_string($dbcon, $lname);
 $q = "SELECT title, lname, fname, addr1, addr2, city, county, pcode, phone, user_id 
-FROM finalpost WHERE lname='$lname' AND fname='$fname' ";
+FROM finalpost WHERE lname='$lname' AND fname='$fname'";
 $result = @mysqli_query ($dbcon, $q); // Run the query
 if ($result) { // If it ran, display the records
 // Table headings                                                                        #2
@@ -36,7 +38,7 @@ echo '<table>
 // Fetch and display the records                                                         
 while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
     echo '<tr>
-    <td><a href="edit_address.php?id=' . $row['user_id'] . '">Edit</a></td>
+    <td><a href="edit-address.php?id=' . $row['user_id'] . '">Edit</a></td>
 <td>' . $row['title'] . '</td>
 <td>' . $row['lname'] . '</td>
 <td>' . $row['fname'] . '</td>
@@ -46,7 +48,8 @@ while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
 <td>' . $row['county'] . '</td>
 <td>' . $row['pcode'] . '</td>
 <td>' . $row['phone'] . '</td>
-=======
+</tr>' . '<br>';
+
     echo '<p>If no record is shown, this is because of an incorrect or missing entry in
 the search form.<br>Click the Search button and try again</p>';
     $fname=$_POST['fname'];
@@ -83,14 +86,12 @@ while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
     <td>' . $row['county'] . '</td>
     <td>' . $row['pcode'] . '</td>
     <td>' . $row['phone'] . '</td>
->>>>>>> f37f2b4705244e4b279a3bfb5163111a17228cdb
     </tr>';
     }
     echo '</table>'; // Close the table
     mysqli_free_result ($result); // Free up the resources
 } else { // If it failed to run
 // Display message
-<<<<<<< HEAD
 echo '<p class="alert-box alert round">The current users could not be retrieved. We apologize for 
 any inconvenience.</p>';
 // Debugging message
@@ -102,7 +103,6 @@ $result = @mysqli_query ($dbcon, $q);
 $row = @mysqli_fetch_array ($result, MYSQLI_NUM);
 $members = $row[0];
 mysqli_close($dbcon); //Close the database connection
-=======
     echo '<p class="alert-box alert round">The current users could not be retrieved. We apologize for any inconvenience.</p>';
 // Debugging message
     echo '<p>' . mysqli_error($dbcon) . '<br><br>Query: ' . $q . '</p>';
@@ -113,8 +113,5 @@ mysqli_close($dbcon); //Close the database connection
     $row = @mysqli_fetch_array ($result, MYSQLI_NUM);
     $members = $row[0];
     mysqli_close($dbcon); //Close the database connection
->>>>>>> f37f2b4705244e4b279a3bfb5163111a17228cdb
 echo "<p>Total membership: $members</p>";
 ?>
-</div><!-- End of found address page -->
-<?php include("footer.php"); ?>
