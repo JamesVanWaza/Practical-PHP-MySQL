@@ -17,7 +17,7 @@ echo '</h2>';
 require 'mysqli-connect.php'; /*Connect to the database*/
 
 /*Make the Query*/
-$q = "SELECT CONCAT(lname, ', ', fname) AS name, DATE_FORMAT(registration_date, '%M %D, %Y') AS regdat
+$q = "SELECT CONCAT(lname, ', ', fname) AS name, DATE_FORMAT(registration_date, '%M %D, %Y') AS regdat, user_id
 	FROM logindb
 	ORDER BY registration_date ASC";
 $result = @mysqli_query($dbcon, $q); //Run the query
