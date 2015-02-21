@@ -4,9 +4,7 @@ if (!isset($_SESSION['user_level']) or ($_SESSION['user_level']) != 1) {
 	header('Location: login.php');
 	exit();
 }
-?>
-<?php include 'header-admin.php';?>
-<?php
+include 'header-admin.php';
 echo '<h2 class="text-center">Welcome to the Admin Page ';
 if (isset($_SESSION['fname'])) {
 	echo "{$_SESSION['fname']}";
