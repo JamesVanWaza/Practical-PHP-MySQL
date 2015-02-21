@@ -60,23 +60,24 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 // Display any error message
 			echo '<h2 class="text-center">System Error</h2>
-<p class="alert-box alert round">You could not be registered due to a system error. We apologize for any inconvenience.</p>';
-// Debug the message:
+            <div data-alert class="alert-box alert round">
+			<p class="text-center">You could not be registered due to a system error. We apologize for any inconvenience.<a href="#" class="close">&times;</a></p></div>';
+			// Debugging message:
 			echo '<p>' . mysqli_error($dbcon) . '<br><br>Query: ' . $q . '</p>';
 		}// End of if clause ($result)
 		mysqli_close($dbcon); // Close the database connection.
-		// Include the footer and quit the script:
-		include 'footer.php';
 		exit();
 	} else {
 		// Display the errors
 		echo '<h2 class="text-center">Error!</h2>
-        <p class="alert-box alert round">The following error(s) occurred:<br>';
+		  <div data-alert class="alert-box alert round">
+            <p class="text-center">The following error(s) occurred:<br>
+               <a href="#" class="close">&times;</a>';
 		foreach ($errors as $msg) {
-			// Print each error.                             #12
+			// Print each error.
 			echo " - $msg<br>\n";
 		}
-		echo '</p><h3>Please try again.</h3><p><br></p>';
+		echo '</p><h3 class="text-center">Please try again.</h3><p><br></p></div>';
 	}// End of if (empty($errors)) IF.
 }// End of the main Submit conditional.
 ?>
@@ -133,9 +134,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   </div>
     </div><!--End of Third Row-->
 </form>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.js"></script>
-    <script src="http://cdn.foundation5.zurb.com/foundation.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
-    <script>
-        $(document).foundation();
-    </script>
+<script src="js/vendor/jquery.js"></script>
+<script src="http://cdn.foundation5.zurb.com/foundation.js"></script>
+<script src="js/vendor/modernizr.js"></script>
+<script>
+    $(document).foundation();
+</script>
