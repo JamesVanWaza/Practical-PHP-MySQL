@@ -1,4 +1,4 @@
-<?php include ('../html5req.php'); ?>
+<?php include '../html5req.php';?>
 <nav class="top-bar" data-topbar role="navigation" data-options="is_hover: false">
     <ul class="title-area">
         <li class="name">
@@ -12,7 +12,7 @@
 </section>
 </nav>
 <script src="js/vendor/jquery.js"></script>
-<script src="js/foundation/foundation.js"></script>
+<script src="http://cdn.foundation5.zurb.com/foundation.js"></script>
 <script src="js/vendor/modernizr.js"></script>
 <script>
     $(document).foundation();
