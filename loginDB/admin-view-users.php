@@ -1,4 +1,16 @@
-<?php include 'nav.php';?>
+<?php
+session_start();
+if (!isset($_SESSION['user_level']) or ($_SESSION['user_level']) != 1) {
+	header('Location: login.php');
+	exit();
+}
+include 'header-admin.php';
+echo '<h2 class="text-center">Welcome to the Admin Page ';
+if (isset($_SESSION['fname'])) {
+	echo "{$_SESSION['fname']}";
+}
+echo '</h2>';
+?>
 <h2 class="text-center">These are the registered users</h2>
 <?php
 /*This script retrieves all the records from the logindb table*/
