@@ -46,12 +46,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			header("Location: register-thanks.php");
 			exit();
 			// Print a message:
-			//echo '<h2>Thank you!</h2>
+			//echo '<h2 class="text-center">Thank you!</h2>
 			//<p>You are now registered. In Chapter 12 you will actually be able to log in!</p><p><br></p>';
 		} else {
 			// If it did not run OK.
 			// Public message:
-			echo '<h2>System Error</h2>
+			echo '<h2 class="text-center">System Error</h2>
             <div data-alert class="alert-box alert round">
 			<p class="text-center">You could not be registered due to a system error. We apologize for any inconvenience.<a href="#" class="close">&times;</a></p></div>';
 			// Debugging message:
@@ -62,7 +62,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	} else {
 		// Report the errors.
 		//header ("location: register-page.php");
-		echo '<h2>Error!</h2>
+		echo '<h2 class="text-center">Error!</h2>
 		  <div data-alert class="alert-box alert round">
             <p class="text-center">The following error(s) occurred:<br>
                <a href="#" class="close">&times;</a>';
@@ -74,7 +74,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	}// End of if (empty($errors)) IF.
 }// End of the main Submit conditional.
 ?>
-<h2>Register</h2>
+<h2 class="text-center">Register</h2>
 <!--display the form on the screen-->
 <form action="register-page.php" method="post">
   <div class="row"><!--Beginning of First Row-->

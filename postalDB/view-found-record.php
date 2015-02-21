@@ -8,7 +8,7 @@ if (!isset($_SESSION['user_level']) or ($_SESSION['user_level'] != 1)) {
 include 'nav.php';
 ob_end_flush();
 ?>
-<h2>Search Results</h2>
+<h2 class="text-center">Search Results</h2>
 <?php
 /*This script retrieves all the records from the users table*/
 require 'mysqli-connect.php'; /*Connect to the database*/

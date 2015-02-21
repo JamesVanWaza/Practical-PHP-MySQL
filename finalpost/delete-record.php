@@ -8,7 +8,7 @@ if (!isset($_SESSION['user_level']) or ($_SESSION['user_level'] != 1)) {
 include 'header-members.php';
 ob_end_flush();
 ?>
-<h2>Delete a Record</h2>
+<h2 class="text-center">Delete a Record</h2>
 <?php
 // Check for a valid user ID, through GET or POST:
 if ((isset($_GET['id'])) && (is_numeric($_GET['id']))) {

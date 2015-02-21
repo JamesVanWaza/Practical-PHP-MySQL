@@ -1,7 +1,7 @@
-<?php include('header.php');?>
+<?php include 'header.php';?>
 <header>
 	<h1>Devon Real Estate</h1>
-	<h2>Try our award winning service</h2>
+	<h2 class="text-center">Try our award winning service</h2>
 	<img src="" alt="">
 </header>
 <div class="row">

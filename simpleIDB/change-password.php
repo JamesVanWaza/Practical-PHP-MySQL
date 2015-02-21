@@ -44,7 +44,7 @@
 				$result = @mysqli_query($dbcon, $q);
 			if (mysqli_affected_rows($dbcon)==1) { //If the query ran without a problem
 				//Echo a message
-				echo "<h2>Thank You!</h2>
+				echo "<h2 class="text-center">Thank You!</h2>
 				<h3>Your Password has been updated</h3>";
 			} else { /*If it encountered a problem
 				Error Message
@@ -60,7 +60,7 @@
 			exit();
 			}
 			else { //Report the errors
-				echo '<h2>Error!</h2>
+				echo '<h2 class="text-center">Error!</h2>
 <div data-alert class="alert-box alert round">
             <p class="text-center">The following error(s) occurred:<br>
                <a href="#" class="close">&times;</a>';
@@ -73,7 +73,7 @@ foreach ($errors as $msg) { // Print each error.                             #12
 		mysqli_close($dbcon);// Close the database connection
 	}// End of main Submit conditional
 ?>
-<h2>Change Your Password</h2>
+<h2 class="text-center">Change Your Password</h2>
 <!--display the form on the screen-->
 <form action="register-password.php" method="post">
 	<div class="row"><!--Beginning of First Row-->

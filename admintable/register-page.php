@@ -60,7 +60,7 @@ VALUES (' ', '$fn', '$ln', '$e', SHA1('$p'), NOW() )";
 			// If the form handler or database table contained errors
 
 // Display any error message
-			echo '<h2>System Error</h2>
+			echo '<h2 class="text-center">System Error</h2>
 <p class="alert-box alert round">You could not be registered due to a system error. We apologize for any
 
 inconvenience.</p>';
@@ -73,7 +73,7 @@ inconvenience.</p>';
 		exit();
 	} else {
 		// Display the errors
-		echo '<h2>Error!</h2>
+		echo '<h2 class="text-center">Error!</h2>
         <p class="alert-box alert round">The following error(s) occurred:<br>';
 		foreach ($errors as $msg) {
 			// Print each error.                             #12
@@ -83,7 +83,7 @@ inconvenience.</p>';
 	}// End of if (empty($errors)) IF.
 }// End of the main Submit conditional.
 ?>
-<h2>Register</h2>
+<h2 class="text-center">Register</h2>
 <!--display the form on the screen-->
 <form action="register-thanks.php" method="post">
   <div class="row"><!--Beginning of First Row-->

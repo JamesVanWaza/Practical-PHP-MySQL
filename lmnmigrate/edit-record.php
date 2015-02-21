@@ -11,7 +11,7 @@ if (isset($_SESSION['user_id'])) {
 	ob_end_flush();
 }
 ?>
-<h2>Edit a Record</h2>
+<h2 class="text-center">Edit a Record</h2>
 <?php
 /*After clicking the Edit Link found_record.php page, the editing interface appears*/
 /*The code looks for a valid user ID, either through GET or POST*/

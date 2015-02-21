@@ -1,4 +1,4 @@
-<?php include('html5req.php'); ?>
+<?php include 'html5req.php';?>
 <body>
     <header>
         <h1>This is the Header</h1>
@@ -12,5 +12,5 @@
             </nav>
     </header>
     <h1>Devon Real Estate</h1>
-    <h2>Try our award winning service</h2>
+    <h2 class="text-center">Try our award winning service</h2>
 </body>

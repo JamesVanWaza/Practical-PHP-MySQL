@@ -8,7 +8,7 @@ if (!isset($_SESSION['user_level']) or ($_SESSION['user_level'] != 1)) {
 include 'nav.php';
 ob_end_flush();
 ?>
-<h2>Edit Your Account</h2>
+<h2 class="text-center">Edit Your Account</h2>
 <h3>For your own security please remember to logout</h3>
 <?php
 // When the you're your-Account button is clicked the editing interface appears

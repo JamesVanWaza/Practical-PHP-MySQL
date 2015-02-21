@@ -8,7 +8,7 @@ if (!isset($_SESSION['user_level']) or ($_SESSION['user_level'] != 1)) {
 include 'nav.php';
 ob_end_flush();
 ?>
-<h2>Search for an address or phone number</h2>
+<h2 class="text-center">Search for an address or phone number</h2>
 <!--display the form on the screen-->
 <form action="view-found-address.php" method="post">
   <div class="row"><!--Beginning of First Row-->

@@ -8,7 +8,7 @@ if (!isset($_SESSION['user_level']) or ($_SESSION['user_level'] != 1)) {
 include 'header-members.php';
 ob_end_flush();
 ?>
-<h2>Edit a Record</h2>
+<h2 class="text-center">Edit a Record</h2>
 <?php
 // After clicking the Edit link in the register-found-record.php page. This editing interface appears
 // Look for a valid user ID, either through GET or POST:

@@ -11,7 +11,7 @@ if (isset($_SESSION['user_id'])) {
 	ob_end_flush();
 }
 ?>
-<h2>Edit Your Account</h2>
+<h2 class="text-center">Edit Your Account</h2>
 <?php
 // When the Your-Account button is clicked the editing interface appears
 // Look for a valid user id, either through GET or POST
@@ -160,7 +160,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			if (mysqli_affected_rows($dbcon) == 1) {
 				// If it ran OK
 				// Echo a message if the edit was satisfactory
-				echo '<h2>Your Account has Been Updated</h2>';
+				echo '<h2 class="text-center">Your Account has Been Updated</h2>';
 			} else {
 				// Echo a message if the query failed.
 				echo "<p class='alert-box alert round'>The user was not edited due to a system error.<br>

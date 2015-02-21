@@ -5,7 +5,7 @@ if (!isset($_SESSION['user_level']) or ($_SESSION['user_level'] != 1)) {
 	exit();
 }
 ?>
-<h2>Edit an Address or Phone number</h2>
+<h2 class="text-center">Edit an Address or Phone number</h2>
 <?php
 // After clicking the Edit link in the register_found_record.php page. This editing interface appears
 // Look for a valid user ID, either through GET or POST:

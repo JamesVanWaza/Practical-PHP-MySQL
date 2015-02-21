@@ -8,7 +8,7 @@ if (!isset($_SESSION['user_level']) or ($_SESSION['user_level'] != 1)) {
 include 'nav.php';
 ob_end_flush();
 ?>
-<h2>Registered members displayed four at-a-time</h2>
+<h2 class="text-center">Registered members displayed four at-a-time</h2>
 <p>
 <?php
 // This script fetches all the records from the lmnmigrate table

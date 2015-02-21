@@ -59,7 +59,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			// If the form handler or database table contained errors
 
 // Display any error message
-			echo '<h2>System Error</h2>
+			echo '<h2 class="text-center">System Error</h2>
 <p class="alert-box alert round">You could not be registered due to a system error. We apologize for any inconvenience.</p>';
 // Debug the message:
 			echo '<p>' . mysqli_error($dbcon) . '<br><br>Query: ' . $q . '</p>';
@@ -80,7 +80,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	}// End of if (empty($errors)) IF.
 }// End of the main Submit conditional.
 ?>
-<h2>Register</h2>
+<h2 class="text-center">Register</h2>
 <!--display the form on the screen-->
 <form action="register-page-apos.php" method="post">
   <div class="row"><!--Beginning of First Row-->

@@ -1,17 +1,17 @@
 <?php
-	session_start();
-	if (!isset($_SESSION['user_level']) or($_SESSION['user_level']) !=1) {
-		header('Location: login.php');
-		exit();
-	}
+session_start();
+if (!isset($_SESSION['user_level']) or ($_SESSION['user_level']) != 1) {
+	header('Location: login.php');
+	exit();
+}
 ?>
-<?php include('header-admin.php'); ?>
+<?php include 'header-admin.php';?>
 <?php
-	echo '<h2>Welcome to the Admin Page';
-	if (isset($_SESSION['fname'])) {
-		echo "{$_SESSION['fname']}";
-	}
-	echo '</h2>';
+echo '<h2 class="text-center">Welcome to the Admin Page';
+if (isset($_SESSION['fname'])) {
+	echo "{$_SESSION['fname']}";
+}
+echo '</h2>';
 ?>
 <h3>You have permission to:
 <p>&#9632; Use the View members button to see a table of registered members</p>
