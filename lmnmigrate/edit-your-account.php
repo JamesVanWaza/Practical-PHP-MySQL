@@ -21,7 +21,7 @@ if ((isset($_GET['id'])) && (is_numeric($_GET['id']))) {
 } else {
 	// No valid ID, kill the script
 	echo '<p class="alert-box alert round">This page has been accessed in error.</p>';
-	include 'includes/footer.php';
+	include 'footer.php';
 	exit();
 }
 require 'mysqli-connect.php';
