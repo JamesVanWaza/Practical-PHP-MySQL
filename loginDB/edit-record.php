@@ -1,10 +1,12 @@
-<?php include 'nav.php';?>
 <?php
+ob_start();
 session_start();
 if (!isset($_SESSION['user_level']) or ($_SESSION['user_level'] != 1)) {
 	header("Location: login.php");
 	exit();
 }
+include 'header-members.php';
+ob_end_flush();
 ?>
 <h2 class="text-center">Edit a Record</h2>
 <?php
@@ -112,7 +114,7 @@ if (mysqli_num_rows($result) == 1) {
 </form>';
 } else {
 	/*The record could not be validated*/
-	echo '<p class="alert-box alert round">This page has been accessed in error';
+	echo '<p class="alert-box alert round">This page has been accessed by an unauthorized person.</p>';
 }
 mysqli_close($dbcon);
 include 'footer.php';
