@@ -46,11 +46,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			// If it ran OK.
 			// header ("Location: register-thanks.php");- Line of code not working
 			echo '<div data-alert class="alert-box success radius">
-  					<i class="fa fa-check fa-2x"> Success !</i>
-  						<br>
-  						<p>Your Registration has been submitted successfully. </p>
-  					<a href="#" class="close">&times;</a>
-				</div>';
+  <i class="fa fa-check fa-2x"> Success !</i>
+  <br>
+  <p class="text-center">Your Registration has been submitted successfully. </p>
+  <a href="#" class="close">&times;</a>
+</div>';
 			exit();
 			ob_end_flush();
 			// Print a message:
