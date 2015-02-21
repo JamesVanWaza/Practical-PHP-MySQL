@@ -3,14 +3,14 @@ ob_start();
 session_start();
 if (!isset($_SESSION['user_level']) or ($_SESSION['user_level'] != 1)) {
 	header("Location: login.php");
-	include 'header-members.php';
 	exit();
 }
+include 'header-members.php';
 ob_end_flush();
 ?>
 <h2>Edit a Record</h2>
 <?php
-// After clicking the Edit link in the register_found_record.php page. This editing interface appears
+// After clicking the Edit link in the register-found-record.php page. This editing interface appears
 // Look for a valid user ID, either through GET or POST:
 if ((isset($_GET['id'])) && (is_numeric($_GET['id']))) {
 	// From view-users.php
@@ -20,7 +20,7 @@ if ((isset($_GET['id'])) && (is_numeric($_GET['id']))) {
 	$id = $_POST['id'];
 } else {
 	// No valid ID? stop the script.
-	echo "<p class='alert-box alert round'>This page has been accessed in error</p>";
+	echo '<p class="alert-box alert round">This page has been accessed in error.</p>';
 	include 'footer.php';
 	exit();
 }
@@ -77,18 +77,19 @@ paid='$paid' WHERE user_id=$id LIMIT 1";
 				echo '<h3>The user has been edited.</h3>';
 			} else {
 				// Echo a message if the query failed
-				echo '<p class="alert-box alert round">The user could not be edited due to a system error<br>We apoligize for any inconvience</p>';
+				echo '<p class="alert-box alert round">The user was not edited due to a system error.
+	We apologize for any inconvenience.</p>';
 // Error message
 				echo '<p>' . mysqli_error($dbcon) . '<br />Query: ' . $q . '</p>';
 // Debugging message
 			}
 		} else {
 //The email address is already registered for another user
-			echo '<p class="alert-box alert round">The email address has already been registered</p>';
+			echo '<p class="alert-box alert round">The email address is not acceptable because it is already registered for another member</p>';
 		}
 	} else {
 		// Display the errors
-		echo '<p class="alert-box alert round">The following errors occured:<br>';
+		echo '<p class="alert-box alert round">The  following error(s) occurred:<br />';
 		foreach ($errors as $msg) {
 			// Echo each error.
 			echo " - $msg<br />\n";
@@ -123,15 +124,21 @@ if (mysqli_num_rows($result) == 1) {
          <input id="email" type="email" name="email" size="50" maxlength="50" placeholder="Email" value=" ' . $row[2] . '"/>
       </label>
     </div>
+    <div class="large-12 small-12 columns">
+      <label>Class of Membership:</label><input type="text" name="class" size="30" maxlength="50" value="' . $row[3] . '"></p>
+    </div>
+    <div class="large-12 small-12 columns">
+      <label>Paid?:</label><input type="text" name="paid" size="30" maxlength="50" value="' . $row[4] . '">
+    </div>
       <div class="large-12 small-12 columns">
     <input type="submit" id="submit" name="submit" class="button [radius round]" value="Edit">
     <br><input type="hidden" name="id" value="' . $id . '">
   </div>
     </div><!--End of Third Row-->
-</form>';
+</form>>';
 } else {
 	// The user could not be validated
-	echo '<p class="alert-box alert round">This page has been accessed in error';
+	echo '<p class="alert-box alert round">This page has been accessed by an unauthorized person.</p>';
 }
 mysqli_close($dbcon);
 include 'footer.php';
