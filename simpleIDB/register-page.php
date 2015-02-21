@@ -1,4 +1,6 @@
-<?php include 'header.php';
+<?php
+ob_start();
+include 'header.php';
 include 'nav.php';
 // This script is a query that INSERTs a record in the users table.
 // Check that form has been submitted:
@@ -45,6 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			// header ("Location: register-thanks.php");- Line of code not working
 			header("Location: register-thanks.php");
 			exit();
+			ob_end_flush();
 			// Print a message:
 			//echo '<h2 class="text-center">Thank you!</h2>
 			//<p>You are now registered. In Chapter 12 you will actually be able to log in!</p><p><br></p>';
@@ -131,7 +134,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     </div><!--End of Third Row-->
 </form>
 <script src="js/vendor/jquery.js"></script>
-<script src="js/foundation/foundation.js"></script>
+<script src="http://cdn.foundation5.zurb.com/foundation.js"></script>
 <script src="js/vendor/modernizr.js"></script>
 <script>
     $(document).foundation();
