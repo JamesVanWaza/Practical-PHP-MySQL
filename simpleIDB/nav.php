@@ -9,9 +9,6 @@
     </ul>
 <section class="top-bar-section">
     <!-- Right Nav Section -->
-    <ul class="right">
-        <li><a href="page1.php" title="Return to Home Page">Home Page</a></li>
-    </ul>
 </section>
 </nav>
 <script src="js/vendor/jquery.js"></script>
