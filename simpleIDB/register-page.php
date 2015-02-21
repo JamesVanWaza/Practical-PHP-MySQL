@@ -1,5 +1,6 @@
 <?php
 ob_start();
+require 'mysqli-connect.php'; // Connect to the db.
 include 'header.php';
 include 'nav.php';
 // This script is a query that INSERTs a record in the users table.
@@ -36,8 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	}
 	if (empty($errors)) {
 		// If everything's OK.
-		// Register the user in the database...
-		require 'mysqli-connect.php'; // Connect to the db.
+
 		// Make the query:
 		$q = "INSERT INTO users (user_id, fname, lname, email, psword, registration_date)
         VALUES (`user_id`, '$fn', '$ln', '$e', SHA1('$p'), NOW() )";
