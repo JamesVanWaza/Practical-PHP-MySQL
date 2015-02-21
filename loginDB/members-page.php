@@ -1,5 +1,7 @@
-<?php include 'header-members.php';
+<?php
+ob_start();
 session_start();
+include 'header-members.php';
 if (!isset($_SESSION['user_level']) or ($_SESSION['user_level']) != 0) {
 	header('Location: login.php');
 	exit();
@@ -9,6 +11,7 @@ if (isset($_SESSION['fname'])) {
 	echo "{$_SESSION['fname']}";
 }
 echo '</h2>';
+ob_end_flush();
 ?>
 <h3>Members Events</h3>
 <p>
