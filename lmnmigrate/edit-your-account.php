@@ -235,7 +235,7 @@ value="' .$row[9]. '"></p>
 <input type="hidden" name="id" value="' . $id . '">
 </form>';
 } else { // The user could not be validated
-...echo '<p class="alert-box alert round">This page has been accessed in error.</p>';
+echo '<p class="alert-box alert round">This page has been accessed in error.</p>';
 }
 mysqli_close($dbcon);
     include ('footer.php');
