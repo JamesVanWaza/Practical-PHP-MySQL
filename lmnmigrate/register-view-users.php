@@ -15,7 +15,7 @@ if ($result) {
 	/*Table Header*/
 	echo "<table id='myTable'>
 		<tr>
-		<td><b>Name</b></td>
+		<td><b>Full Names</b></td>
 		<td><b>Date Registered</b></td>
 		</tr>
 		";

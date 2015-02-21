@@ -27,7 +27,7 @@ if ($result) {
 		<tr>
 		<td><b>Edit</b></td>
 		<td><b>Delete</b></td>
-		<td><b>Name</b></td>
+		<td><b>Full Names</b></td>
 		<td><b>Date Registered</b></td>
 		</tr>
 		";
