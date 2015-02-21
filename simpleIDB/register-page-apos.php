@@ -2,7 +2,6 @@
 ob_start();
 require 'mysqli-connect.php'; // Connect to the database.
 include 'nav.php';
-ob_end_flush();
 // This script performs an INSERT query that adds a record to the users table.
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	#1
@@ -52,8 +51,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 		if ($result) {
 			// If it ran OK.
-			header("Location: register-thanks.php");
+			header("Location:register-thanks.php");
 			exit();
+			ob_end_flush();
 //End of SUCCESSFUL SECTION
 		} else {
 			// If the form handler or database table contained errors
