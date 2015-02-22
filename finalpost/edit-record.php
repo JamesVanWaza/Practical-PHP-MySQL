@@ -73,6 +73,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   <h3 class="text-center">The user has been edited.</h3>
   <a href="#" class="close">&times;</a>
 </div>';
+			exit();
 		} else {
 			// Echo a message if the query failed
 			echo '<p class="alert-box alert round">The user was not edited due to a system error.
