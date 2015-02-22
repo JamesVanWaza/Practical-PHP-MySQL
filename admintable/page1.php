@@ -1,4 +1,4 @@
-<?php include('header.php'); ?>
+<?php include '../html5req.php';?>
 <div id="header">
 		<h1>This is the header
 			<div id="reg-navigation">

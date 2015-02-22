@@ -1,4 +1,4 @@
-<?php include('header.php'); ?>
+<?php include '../html5req.php'; ?>
 <?php include('nav.php'); ?>
 <?php
 	/*This Page lets users change their password*/
