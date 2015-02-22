@@ -78,22 +78,24 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			echo '<p class="alert-box alert round">The user was not edited due to a system error.
 	We apologize for any inconvenience.</p>';
 // Error message
-			echo '<p>' . mysqli_error($dbcon) . '<br />Query: ' . $q . '</p>';
-// Debugging message
+			//echo '<p>' . mysqli_error($dbcon) . '<br />Query: ' . $q . '</p>';
+			// Debugging message
 		}
 	} else {
 //The email address is already registered for another user
 		echo '<p class="alert-box alert round">The email address is not acceptable because it is already registered for another member</p>';
 	}
 } else {
-	// Display the errors
-	echo '<div data-alert class="alert-box alert round">
-  			<p class="text-center">The following error(s) occurred:<br>';
-	foreach ($errors as $msg) {
-		/*Echo error*/
-		echo " - $msg <br> \n";
-	}
-	echo '<a href="#" class="close">&times;</a></div></p><p>Please try again.</p>';
+	/**
+	 * Display errors code
+	 * echo '<div data-alert class="alert-box alert round">
+	 * <p class="text-center">The following error(s) occurred:<br>';
+	 * foreach ($errors as $msg) {
+	 * 	echo " - $msg <br> \n";
+	 * }
+	 * echo '<a href="#" class="close">&times;</a></div></p><p>Please try
+	 * again.</p>';***/
+
 }// End of if (empty($errors))section.
 // Select the user's information:
 $q = "SELECT fname, lname, email, class, paid FROM finalpost WHERE user_id=$id";
@@ -133,7 +135,7 @@ if (mysqli_num_rows($result) == 1) {
     <br><input type="hidden" name="id" value="' . $id . '">
   </div>
     </div><!--End of Third Row-->
-</form>>';
+</form>';
 } else {
 	// The user could not be validated
 	echo '<p class="alert-box alert round">This page has been accessed by an unauthorized person.</p>';
