@@ -59,22 +59,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		$paid = NULL;
 	}
 	if (empty($errors)) {
-		// If no problems occurred
-		//determine whether the email address has already been registered for a user,
-		//but ignore the email address of the user being updated, he may wish to keep his
-		//current email address
-		$q = "SELECT user_id FROM finalpost WHERE email = '$e' AND user_id != $id";
-		$result = @mysqli_query($dbcon, $q);
-		if (mysqli_num_rows($result) == 0) {
-//The email address is not already registered or it
-			//belongs to the user being updated, therefore, update the finalpost table
-			$q = "UPDATE finalpost SET fname='$fn', lname='$ln', email='$e', class='$class',
-paid='$paid' WHERE user_id=$id LIMIT 1";
+		/*If everything is ok, make the update query
+		Check that the email is not already in the users table
+		 */
+			$q = "UPDATE finalpost SET fname='$fn', lname='$ln', email='$e', class='$class', paid='$paid' WHERE user_id=$id LIMIT 1";
 			$result = @mysqli_query($dbcon, $q);
 			if (mysqli_affected_rows($dbcon) == 1) {
 				// If it ran OK
 				// Echo a message confirming that the edit was satisfactory
-				echo '<h3>The user has been edited.</h3>';
+				echo '<div data-alert class="alert-box success radius">
+  <i class="fa fa-check fa-2x"> Success !</i>
+  <br>
+  <h3 class="text-center">The user has been edited.</h3>
+  <a href="#" class="close">&times;</a>
+</div>';
 			} else {
 				// Echo a message if the query failed
 				echo '<p class="alert-box alert round">The user was not edited due to a system error.
@@ -89,12 +87,13 @@ paid='$paid' WHERE user_id=$id LIMIT 1";
 		}
 	} else {
 		// Display the errors
-		echo '<p class="alert-box alert round">The  following error(s) occurred:<br />';
+		echo '<div data-alert class="alert-box alert round">
+  			<p class="text-center">The following error(s) occurred:<br>';
 		foreach ($errors as $msg) {
-			// Echo each error.
-			echo " - $msg<br />\n";
+			/*Echo error*/
+			echo " - $msg <br> \n";
 		}
-		echo '</p><p>Please try again.</p>';
+		echo '<a href="#" class="close">&times;</a></div></p><p>Please try again.</p>';
 	}// End of if (empty($errors))section.
 }// End of the conditionals
 // Select the user's information:

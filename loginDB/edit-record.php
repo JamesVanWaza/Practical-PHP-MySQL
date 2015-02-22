@@ -56,7 +56,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		$result = @mysqli_query($dbcon, $q); // Run the query.
 		if (mysqli_affected_rows($dbcon) == 1) {
 			/*If it ran OK Echo a message if the edit was satisfactory*/
-			echo "<h3>The user has been edited</h3>";
+			echo '<div data-alert class="alert-box success radius">
+  <i class="fa fa-check fa-2x"> Success !</i>
+  <br>
+  <h3 class="text-center">The user has been edited.</h3>
+  <a href="#" class="close">&times;</a>
+</div>';
 		} else {
 			/*Echo a message if the query failed*/
 			echo '<p class="alert-box alert round">The user could not be edited due to a system error<br>We apoligize for any inconvience</p>'; /*Error message*/
@@ -69,12 +74,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	}
 } else {
 	//Display the errors
-	echo '<p class="alert-box alert round">The following errors occured:<br>';
+	echo '<div data-alert class="alert-box alert round">
+  			<p class="text-center">The following error(s) occurred:<br>';
 	foreach ($errors as $msg) {
-		/*Echo each error*/
-		echo "- $msg<br>\n";
+		/*Echo error*/
+		echo " - $msg <br> \n";
 	}
-	echo '</p><p>Please try again</p>'; /*Error message*/
+	echo '<a href="#" class="close">&times;</a></div></p><p>Please try again.</p>'; /*Error message*/
 	echo "<p>" . mysqli_error($dbcon) . '<br>Query: ' . $q . "</p>"; //Debugging message
 }//End of if(empty($errors)) section
 
