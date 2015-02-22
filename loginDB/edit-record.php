@@ -82,7 +82,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 				echo '<div data-alert class="alert-box success radius">
   <i class="fa fa-check fa-2x"> Success !</i>
-  <br />
+  <br>
   <h3 class="text-center">The user has been edited.</h3>
   <a href="#" class="close">&times;</a>
 </div>';
