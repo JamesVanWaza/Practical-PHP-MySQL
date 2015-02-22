@@ -1,10 +1,15 @@
-<?php include 'nav.php';?>
 <?php
 session_start();
 if (!isset($_SESSION['user_level']) or ($_SESSION['user_level']) != 1) {
 	header('Location: login.php');
 	exit();
 }
+include 'header-admin.php';
+echo '<h2 class="text-center">Welcome to the Admin Page ';
+if (isset($_SESSION['fname'])) {
+	echo "{$_SESSION['fname']}";
+}
+echo '</h2>';
 ?>
 <h2 class="text-center">These are the registered users</h2>
 <?php
@@ -34,11 +39,10 @@ if ($result) {
 
 	while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
 		echo '<tr>
-			<td><a href="edit-user.php?id= ' . $row['user_id'] . ' ">Edit</a></td>
-			<td><a href="delete-user.php?id= ' . $row['user_id'] . ' ">Delete</a></td>
+			<td><a href="edit-record.php?id=' . $row['user_id'] . '">Edit</a></td>
+			<td><a href="delete-record.php?id=' . $row['user_id'] . '">Delete</a></td>
 			<td>' . $row['lname'] . '</td>
 			<td>' . $row['fname'] . '</td>
-			<td>' . $row['email'] . '</td>
 			<td>' . $row['regdat'] . '</td>
 			</tr>' . '<br>';
 	}
