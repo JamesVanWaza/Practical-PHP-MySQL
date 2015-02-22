@@ -8,7 +8,7 @@ if (!isset($_SESSION['user_level']) or ($_SESSION['user_level'] != 1)) {
 include 'nav.php';
 ob_end_flush();
 ?>
-<h2>These are the registered users</h2>
+<h2 class="text-center">These are the registered users</h2>
 <?php
 /*This script retrieves all the records from the users table*/
 require 'mysqli-connect.php'; /*Connect to the database*/
@@ -37,8 +37,8 @@ if ($result) {
 
 	while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
 		echo '<tr>
-			<td><a href="edit-user.php?id= ' . $row['user_id'] . ' ">Edit</a></td>
-			<td><a href="delete-user.php?id= ' . $row['user_id'] . ' ">Delete</a></td>
+			<td><a href="edit-record.php?id= ' . $row['user_id'] . ' ">Edit</a></td>
+			<td><a href="delete-record.php?id= ' . $row['user_id'] . ' ">Delete</a></td>
 			<td>' . $row['lname'] . '</td>
 			<td>' . $row['fname'] . '</td>
 			<td>' . $row['email'] . '</td>

@@ -8,9 +8,9 @@ if (!isset($_SESSION['user_level']) or ($_SESSION['user_level'] != 1)) {
 include 'nav.php';
 ob_end_flush();
 ?>
-<h2 class="text-center">Search for an address or phone number</h2>
+<h3>Search for a Record</h3>
 <!--display the form on the screen-->
-<form action="view-found-address.php" method="post">
+<form action="view-found-record.php" method="post">
   <div class="row"><!--Beginning of First Row-->
   	<div class="large-6 medium-6 small-12 columns">
       <label>First Name

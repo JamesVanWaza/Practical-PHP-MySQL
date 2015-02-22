@@ -5,7 +5,7 @@ if (!isset($_SESSION['user_level']) or ($_SESSION['user_level'] != 1)) {
 	exit();
 }
 ?>
-<h2>Edit an Address or Phone number</h2>
+<h2 class="text-center">Edit an Address or Phone number</h2>
 <?php
 // After clicking the Edit link in the register_found_record.php page. This editing interface appears
 // Look for a valid user ID, either through GET or POST:
@@ -91,7 +91,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			if (mysqli_affected_rows($dbcon) == 1) {
 				// If it ran OK.
 				// Echo a message if the edit was satisfactory:
-				echo '<h3>The user has been edited.</h3>';
+				echo '<div data-alert class="alert-box success radius">
+  <i class="fa fa-check fa-2x"> Success !</i>
+  <br>
+  <h3 class="text-center">The user has been edited.</h3>
+  <a href="#" class="close">&times;</a>
+</div>';
 			} else {// Echo a message if the query failed.
 				echo '<p class="alert-box alert round">The user could not be edited due to a system error. We apologize for any inconvenience.</p>'; // Public message.
 				echo '<p>' . mysqli_error($dbcon) . '<br />Query: ' . $q . '</p>'; // Debugging message.

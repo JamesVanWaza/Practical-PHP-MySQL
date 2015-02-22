@@ -1,6 +1,6 @@
-<?php include 'header.php';
+<?php include '../html5req.php';
 include 'nav.php';?>
-<h2>These are the registered users</h2>
+<h2 class="text-center">These are the registered users</h2>
 <?php
 // This script retrieves all the records from the users table.
 require 'mysqli-connect.php'; // Connect to the database.
@@ -12,7 +12,7 @@ if ($result) {
 	// If it ran OK, display the records.
 	// Table header.
 	echo '<table>
-<tr><td><b>Name</b></td><td><b>Date Registered</b></td></tr>';
+<tr><td><b>Full Names</b></td><td><b>Date Registered</b></td></tr>';
 // Fetch and print all the records:                                                  #3
 
 	while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {

@@ -55,7 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 }//End of Submit Conditional
 
 ?>
-<h2>Login</h2>
+<h2 class="text-center">Login</h2>
 <!--display the form on the screen-->
 <form action="login.php" method="post">
   <div class="row"><!--Beginning of First Row-->

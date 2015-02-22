@@ -124,7 +124,7 @@ VALUES (' ', '$title', '$fn', '$ln', '$e', SHA1('$p'),  '$uname', NOW(), '$class
 			// If the form handler or database table contained errors
 
 // Display any error message
-			echo '<h2>System Error</h2>
+			echo '<h2 class="text-center">System Error</h2>
 <p class="alert-box alert round">You could not be registered due to a system error. We apologize for any inconvenience.</p>';
 // Debug the message:
 			echo '<p>' . mysqli_error($dbcon) . '<br><br>Query: ' . $q . '</p>';
@@ -135,7 +135,7 @@ VALUES (' ', '$title', '$fn', '$ln', '$e', SHA1('$p'),  '$uname', NOW(), '$class
 		exit();
 	} else {
 		// Display the errors
-		echo '<h2>Error!</h2>
+		echo '<h2 class="text-center">Error!</h2>
         <p class="alert-box alert round">The following error(s) occurred:<br>';
 		foreach ($errors as $msg) {
 			// Print each error.                             #12
@@ -145,7 +145,7 @@ VALUES (' ', '$title', '$fn', '$ln', '$e', SHA1('$p'),  '$uname', NOW(), '$class
 	}// End of if (empty($errors)) IF.
 }// End of the main Submit conditional.
 ?>
-<h2>Membership Registration</h2>
+<h2 class="text-center">Membership Registration</h2>
 <p>
   <b>Membership classes: </b> Standard 1 year: 30, Standard 5 years: 125, Armed Forces 1 year: 5
   <br>

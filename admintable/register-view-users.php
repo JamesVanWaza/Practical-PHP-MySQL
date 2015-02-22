@@ -5,7 +5,7 @@ if (!isset($_SESSION['user_level']) or ($_SESSION['user_level'] != 1)) {
 	header("Location: login.php");
 	exit();
 }
-include 'header-admin.php';
+include '../html5req.php';
 ob_end_flush();
 ?>
 <h2 class="text-center">These are the registered users</h2>
@@ -23,7 +23,7 @@ if ($result) {
 	//If it ran OK, display thr records
 	/*Table Header*/
 	echo '<table>
-<tr><td><b>Name</b></td><td><b>Date Registered</b></td></tr>';
+<tr><td><b>Full Names</b></td><td><b>Date Registered</b></td></tr>';
 // Fetch and print all the records:
 
 	while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {

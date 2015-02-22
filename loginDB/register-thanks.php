@@ -1,2 +1,2 @@
-<?php include 'header-thanks.php'; ?>
-<h2>Thanks</h2>
+<?php include 'header-thanks.php';?>
+<h2 class="text-center">Thanks</h2>
