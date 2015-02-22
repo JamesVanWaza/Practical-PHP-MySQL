@@ -1,4 +1,3 @@
-
 <?php
 ob_start();
 session_start();
@@ -158,5 +157,4 @@ if (mysqli_num_rows($result) == 1) {
 
 mysqli_close($dbcon);
 include 'footer.php';
-
 ?>
