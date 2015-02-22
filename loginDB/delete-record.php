@@ -41,7 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			echo '<div data-alert class="alert-box success radius">
   <i class="fa fa-check fa-2x"> Success !</i>
   <br>
-  <h3 class="text-center">The user has been deleted.</h3>
+  <h4 class="text-center">The user has been deleted.</h4>
   <a href="#" class="close">&times;</a>
 </div>';
 		} else {// If the query did not run OK.
@@ -71,12 +71,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <div class="row">
       <div class="large-6 medium-6 small-12 columns">
         <label>
-          <input id="submit-yes" type="submit" name="sure" value="Yes">
+          <input id="submit-yes" class="button radius" type="submit" name="sure" value="Yes">
         </label>
       </div>
       <div class="large-6 medium-6 small-12 columns">
         <label>
-         <input id="submit-no" type="submit" name="sure" value="No">
+         <input id="submit-no" class="button alert" type="submit" name="sure" value="No">
         </label>
       </div>
       <div class="large-6 medium-6 small-12 columns">
