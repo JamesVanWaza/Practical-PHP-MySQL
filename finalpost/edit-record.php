@@ -62,40 +62,39 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		/*If everything is ok, make the update query
 		Check that the email is not already in the users table
 		 */
-			$q = "UPDATE finalpost SET fname='$fn', lname='$ln', email='$e', class='$class', paid='$paid' WHERE user_id=$id LIMIT 1";
-			$result = @mysqli_query($dbcon, $q);
-			if (mysqli_affected_rows($dbcon) == 1) {
-				// If it ran OK
-				// Echo a message confirming that the edit was satisfactory
-				echo '<div data-alert class="alert-box success radius">
+		$q = "UPDATE finalpost SET fname='$fn', lname='$ln', email='$e', class='$class', paid='$paid' WHERE user_id=$id LIMIT 1";
+		$result = @mysqli_query($dbcon, $q);
+		if (mysqli_affected_rows($dbcon) == 1) {
+			// If it ran OK
+			// Echo a message confirming that the edit was satisfactory
+			echo '<div data-alert class="alert-box success radius">
   <i class="fa fa-check fa-2x"> Success !</i>
   <br>
   <h3 class="text-center">The user has been edited.</h3>
   <a href="#" class="close">&times;</a>
 </div>';
-			} else {
-				// Echo a message if the query failed
-				echo '<p class="alert-box alert round">The user was not edited due to a system error.
+		} else {
+			// Echo a message if the query failed
+			echo '<p class="alert-box alert round">The user was not edited due to a system error.
 	We apologize for any inconvenience.</p>';
 // Error message
-				echo '<p>' . mysqli_error($dbcon) . '<br />Query: ' . $q . '</p>';
+			echo '<p>' . mysqli_error($dbcon) . '<br />Query: ' . $q . '</p>';
 // Debugging message
-			}
-		} else {
-//The email address is already registered for another user
-			echo '<p class="alert-box alert round">The email address is not acceptable because it is already registered for another member</p>';
 		}
 	} else {
-		// Display the errors
-		echo '<div data-alert class="alert-box alert round">
+//The email address is already registered for another user
+		echo '<p class="alert-box alert round">The email address is not acceptable because it is already registered for another member</p>';
+	}
+} else {
+	// Display the errors
+	echo '<div data-alert class="alert-box alert round">
   			<p class="text-center">The following error(s) occurred:<br>';
-		foreach ($errors as $msg) {
-			/*Echo error*/
-			echo " - $msg <br> \n";
-		}
-		echo '<a href="#" class="close">&times;</a></div></p><p>Please try again.</p>';
-	}// End of if (empty($errors))section.
-}// End of the conditionals
+	foreach ($errors as $msg) {
+		/*Echo error*/
+		echo " - $msg <br> \n";
+	}
+	echo '<a href="#" class="close">&times;</a></div></p><p>Please try again.</p>';
+}// End of if (empty($errors))section.
 // Select the user's information:
 $q = "SELECT fname, lname, email, class, paid FROM finalpost WHERE user_id=$id";
 $result = @mysqli_query($dbcon, $q);
