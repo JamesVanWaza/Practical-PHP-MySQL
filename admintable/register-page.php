@@ -1,4 +1,4 @@
-<?php include 'header.php';?>
+<?php include '../html5req.php';?>
 <?php include 'register-header.php';?>
 <?php
 // This script performs an INSERT query that adds a record to the users table.

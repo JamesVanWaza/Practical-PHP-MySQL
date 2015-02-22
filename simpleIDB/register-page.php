@@ -1,7 +1,7 @@
 <?php
 ob_start();
 require 'mysqli-connect.php'; // Connect to the db.
-include 'header.php';
+include '../html5req.php';
 include 'nav.php';
 // This script is a query that INSERTs a record in the users table.
 // Check that form has been submitted:

@@ -1,5 +1,5 @@
 <meta charset="utf-8">
-<?php include 'header.php';?>
+<?php include '../html5req.php';?>
 <?php include 'nav.php';?>
 <?php
 // This script performs an INSERT query that adds a record to the users table.

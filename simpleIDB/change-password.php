@@ -1,6 +1,6 @@
 <?php
 ob_start();
-include 'header.php';
+include '../html5req.php';
 include 'nav.php';
 /*This Page lets users change their password*/
 /*Was the submit button clicked*/

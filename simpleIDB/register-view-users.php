@@ -1,4 +1,4 @@
-<?php include 'header.php';
+<?php include '../html5req.php';
 include 'nav.php';?>
 <h2 class="text-center">These are the registered users</h2>
 <?php
