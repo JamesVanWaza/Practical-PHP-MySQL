@@ -1,5 +1,4 @@
 <?php include '../html5req.php';?>
-<?php include 'nav.php';?>
     <nav class="top-bar" data-topbar role="navigation" data-options="is_hover: false">
         <ul class="title-area">
             <li class="name">
