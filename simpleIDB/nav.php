@@ -11,7 +11,7 @@
     <!-- Right Nav Section -->
 </section>
 </nav>
-<script src="js/vendor/jquery.js"></script>
+<script src="http://localhost/Practical-PHP-MySQL/js/vendor/jquery.js"></script>
 <script src="http://cdn.foundation5.zurb.com/foundation.js"></script>
 <script src="js/vendor/modernizr.js"></script>
 <script>
