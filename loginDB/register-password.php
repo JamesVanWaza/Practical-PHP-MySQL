@@ -44,12 +44,12 @@
 				$result = @mysqli_query($dbcon, $q);
 			if (mysqli_affected_rows($dbcon)==1) { //If the query ran without a problem
 				//Echo a message
-				echo "<h2 class="text-center">Thank You!</h2>
-				<h3>Your Password has been updated</h3>";
+				echo '<h2 class="text-center">Thank You!</h2>
+				<h3>Your Password has been updated</h3>';
 			} else { /*If it encountered a problem
 				Error Message
 			*/
-				echo "<h2 class="text-center">System Error</h2><p class='alert-box alert round'>You could not be registered due to a system error. We apologize for any inconvenience.</p>";
+				echo '<h2 class="text-center">System Error</h2><p class="alert-box alert round">You could not be registered due to a system error. We apologize for any inconvenience.</p>';
 				//Debugging message
 				echo '<p>' . mysqli_error($dbcon) . '<br><br>Query: ' . $q . '</p>';
 			}
