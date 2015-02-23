@@ -1,11 +1,12 @@
-<?php include '../html5req.php';?>
-<?php include 'nav.php';?>
 <?php
+ob_start();
 session_start();
 if (!isset($_SESSION['user_level']) or ($_SESSION['user_level'] != 1)) {
 	header("Location: login.php");
 	exit();
 }
+include '../html5req.php';
+ob_end_flush();
 ?>
 <h2 class="text-center">Delete a Record</h2>
 <?php
