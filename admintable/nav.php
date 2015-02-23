@@ -13,7 +13,7 @@
 
 <script src="http://localhost/Practical-PHP-MySQL/js/vendor/jquery.js"></script>
 <script src="http://cdn.foundation5.zurb.com/foundation.js"></script>
-<script src="js/foundation.min.js"></script>
+<script src="http://localhost/Practical-PHP-MySQL/js/foundation.min.js"></script>
 <script>
 $(document).foundation();
 
