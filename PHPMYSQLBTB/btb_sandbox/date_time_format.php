@@ -21,4 +21,8 @@ function strip_zeros_from_date($marked_string=""){
 echo strip_zeros_from_date(strftime("The Date Today without zeros in the date is *%m/*%d/%y", $timestamp));
 
 echo "<hr>";
+// Created DateTime Accepted by MySQLi
+$dt = time();
+$mysqli_datetime = strftime("%Y-%m-%d %H:%M:%S");
+echo $mysqli_datetime;
 ?>
