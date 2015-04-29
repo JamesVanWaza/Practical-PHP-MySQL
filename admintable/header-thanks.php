@@ -1,5 +1,4 @@
 <?php include '../html5req.php';?>
-<?php include 'nav.php';?>
     <nav class="top-bar" data-topbar role="navigation" data-options="is_hover: false">
         <ul class="title-area">
             <li class="name">
@@ -18,15 +17,12 @@
 </section>
 </nav>
 <script>
-document.write('<script src=js/vendor/' +
-('__proto__' in {} ? 'zepto' : 'jquery') +
-'.js><\/script>')
-</script>
-<script src="js/vendor/jquery.js"></script>
+
+<script src="http://localhost/Practical-PHP-MySQL/js/vendor/jquery.js"></script>
 <script src="http://cdn.foundation5.zurb.com/foundation.js"></script>
 <!-- <script src="js/foundation/foundation.orbit.js"></script> -->
 <!-- Updating slider settings in here -->
-<script src="js/foundation.min.js"></script>
+<script src="http://localhost/Practical-PHP-MySQL/js/foundation.min.js"></script>
 <script>
 $(document).foundation();
 

@@ -81,3 +81,7 @@ ob_end_flush();
   </div>
     </div><!--End of Third Row-->
 </form>
+  <script src="http://localhost/Practical-PHP-MySQL/js/vendor/jquery.js"></script>
+   <script src="http://localhost/Practical-PHP-MySQL/js/vendor/modernizr.js"></script>
+    <script src="http://localhost/Practical-PHP-MySQL/js/vendor/fastclick.js"></script>
+    <script src="http://localhost/Practical-PHP-MySQL/js/foundation.min.js"></script>

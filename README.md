@@ -18,3 +18,6 @@ In order to view the members page you have to be logged in, this is working than
 The main pages are login.php - LOGIN
 members-page.php - THE PAGE SEEN AFTER LOGGING IN
 logout.php - THE LOGOUT PAGE
+
+
+THE PHPMYSQLBTB Folder is from the concepts learnt in PHP with MySQL Beyond the Basics
