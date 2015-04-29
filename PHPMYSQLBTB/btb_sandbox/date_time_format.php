@@ -4,5 +4,21 @@
 include_once('html5req.php');
 date_default_timezone_set('America/New_York');
 $timestamp = time();
-echo strftime("The Date Today is %m/%d/%y");
+echo strftime("The Date Today is %m/%d/%y") . "<br>";
+
+/**
+ * Removes zeros from strings 
+ */
+function strip_zeros_from_date($marked_string=""){
+    //remove the marked zeros
+    $no_zeros = str_replace('*0', '', $marked_string);
+    
+    //remove any remaining marks
+    $cleaned_string = str_replace('*', '', $no_zeros);
+    return $cleaned_string;
+}
+
+echo strip_zeros_from_date(strftime("The Date Today without zeros in the date is *%m/*%d/%y", $timestamp));
+
+echo "<hr>";
 ?>
