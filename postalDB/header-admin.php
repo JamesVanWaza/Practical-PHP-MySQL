@@ -1,4 +1,4 @@
-<?php include 'html5req.php';?>
+<?php include '../html5req.php';?>
 <body>
    <header id="header">
      <h1>This is the Header</h1>
@@ -10,6 +10,6 @@
             <li><a href="search-addresses.php">Search</a></li>
             <li><a href="register-password.php">New Password</a></li>
         </ul>
-    </nav>  
+    </nav>
    </header>
 </body>

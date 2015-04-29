@@ -1,6 +1,6 @@
 <?php
 ob_start();
-include 'html5req.html';?>
+include '../html5req.php';?>
 <body>
     <div id="header">
     <h1>This is the Header</h1>

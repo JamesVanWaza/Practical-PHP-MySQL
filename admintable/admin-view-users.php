@@ -5,7 +5,7 @@ if (!isset($_SESSION['user_level']) or ($_SESSION['user_level'] != 1)) {
 	header("Location: login.php");
 	exit();
 }
-include 'header-admin.php';
+include '../html5req.php';
 ob_end_flush();
 ?>
 <h2 class="text-center">Registered members displayed four at a time</h2>

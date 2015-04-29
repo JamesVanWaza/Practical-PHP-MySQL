@@ -5,7 +5,7 @@ if (!isset($_SESSION['user_level']) or ($_SESSION['user_level'] != 1)) {
 	header("Location: login.php");
 	exit();
 }
-include 'header-admin.php';
+include '../html5req.php';
 ob_end_flush();
 ?>
 <h2 class="text-center">Edit a Record</h2>
@@ -53,7 +53,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		if (mysqli_affected_rows($dbcon) == 1) {
 			// If it ran OK
 			// Echo a message if the edit was satisfactory
-			echo '<h3 class="text-center">The user has been edited.</h3>';
+			echo '<div data-alert class="alert-box success radius">
+  <i class="fa fa-check fa-2x"> Success !</i>
+  <br>
+  <h3 class="text-center">The user has been edited.</h3>
+  <a href="#" class="close">&times;</a>
+</div>';
+            exit();
 		} else {// Echo a message if the query failed
 			echo "<p class='alert-box alert round'>The user could not be edited due to a system error. We apologize for any inconvenience.</p>"; // Error message.
 			echo '<p>' . mysqli_error($dbcon) . '<br />Query: ' . $q . '</p>'; // Debugging message.

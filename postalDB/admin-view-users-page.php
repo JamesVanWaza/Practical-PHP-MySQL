@@ -8,7 +8,7 @@ if (!isset($_SESSION['user_level']) or ($_SESSION['user_level'] != 1)) {
 include 'nav.php';
 ob_end_flush();
 ?>
-<h2>These are the registered users</h2>
+<h2 class="text-center">These are the registered users</h2>
 <?php
 /*This script retrieves all the records from the users table*/
 require 'mysqli-connect.php'; /*Connect to the database*/
@@ -49,7 +49,7 @@ if (isset($_GET['s']) && is_numeric($_GET['s'])) {
 
 /*Make the Query*/
 $q = "SELECT lname, fname, email,
-	DATE_FORMAT(registration_date, '%M %D, %Y') AS regdat, class, paid, user_id FROM postaldb
+	DATE_FORMAT(registration_date, '%M %D, %Y') AS regdat, class, paid, user_id FROM finalpost
 	ORDER BY registration_date DESC LIMIT $start, $pagerows";
 $result = @mysqli_query($dbcon, $q); //Run the query
 

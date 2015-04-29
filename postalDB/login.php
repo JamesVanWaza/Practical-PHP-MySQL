@@ -1,4 +1,7 @@
-<?php include 'login-header.php';
+<?php
+ob_start();
+session_start();
+include 'login-header.php';
 /*This section processes submissions from the login form*/
 /*Check if the form has been submitted*/
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -30,7 +33,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			/*If one database row (record) matches the input: -
 			Start the session, fetch the record and insert the three values in an array
 			 */
-			session_start();
 			$_SESSION = mysqli_fetch_array($result, MYSQLI_ASSOC);
 			//Ensure that the user level is an integer.
 			$_SESSION['user_level'] = (int) $_SESSION['user_level'];
@@ -70,6 +72,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <input id="psword" type="password" name="psword" size="12" maxlength="12" placeholder="Password" value="<?php if (isset($_POST['psword'])) {
 	echo $_POST['psword'];
 }
+ob_end_flush();
 ?>"/>
       </label><span>Between 8 and 12 characters</span>
     </div>
@@ -78,3 +81,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   </div>
     </div><!--End of Third Row-->
 </form>
+  <script src="http://localhost/Practical-PHP-MySQL/js/vendor/jquery.js"></script>
+   <script src="http://localhost/Practical-PHP-MySQL/js/vendor/modernizr.js"></script>
+    <script src="http://localhost/Practical-PHP-MySQL/js/vendor/fastclick.js"></script>
+    <script src="http://localhost/Practical-PHP-MySQL/js/foundation.min.js"></script>

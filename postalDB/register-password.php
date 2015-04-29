@@ -1,4 +1,4 @@
-<?php include('header.php'); ?>
+<?php include '../html5req.php';; ?>
 <?php include('nav.php'); ?>
 <?php
 	/*This Page lets users change their password*/
@@ -44,12 +44,12 @@
 				$result = @mysqli_query($dbcon, $q);
 			if (mysqli_affected_rows($dbcon)==1) { //If the query ran without a problem
 				//Echo a message
-				echo "<h2>Thank You!</h2>
+				echo "<h2 class="text-center">Thank You!</h2>
 				<h3>Your Password has been updated</h3>";
 			} else { /*If it encountered a problem
 				Error Message
 			*/
-				echo "<h2>System Error</h2><p class='alert-box alert round'>You could not be registered due to a system error. We apologize for any inconvenience.</p>";
+				echo "<h2 class="text-center">System Error</h2><p class='alert-box alert round'>You could not be registered due to a system error. We apologize for any inconvenience.</p>";
 				//Debugging message
 				echo '<p>' . mysqli_error($dbcon) . '<br><br>Query: ' . $q . '</p>';
 			}
@@ -59,7 +59,7 @@
 			exit();
 			}
 			else { //Report the errors
-				echo '<h2>Error!</h2>
+				echo '<h2 class="text-center">Error!</h2>
 <p class="alert-box alert round">The following error(s) occurred:<br>';
 foreach ($errors as $msg) { // Print each error.                             #12
 echo " - $msg<br>\n";
@@ -70,7 +70,7 @@ echo '<p class="alert-box alert round"><h3>Please try again.</h3><p><br></p>';
 		mysqli_close($dbcon);// Close the database connection
 	}// End of main Submit conditional
 ?>
-<h2>Change Your Password</h2>
+<h2 class="text-center">Change Your Password</h2>
 <!--display the form on the screen-->
 <form action="register-password.php" method="post">
 	<div class="row"><!--Beginning of First Row-->
