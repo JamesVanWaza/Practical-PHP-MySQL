@@ -5,17 +5,18 @@ class Person {
         echo "Hello from inside a class. <br>";
     }  
 }    
-//Creating an instance
-$person = new Person();
-$person2 = new Person();
+    //Gets the list of php default classes methods
+    $methods = get_class_methods('Person');
+    
+    foreach($methods as $method){
+        echo $method . "<br>";
+    }
+    
+    //Finding out whether a method exists
+    if(method_exists('Person', 'say_hello')){
+        echo "Method does exist. <br>";
+    } else {
+        echo "Method does not exist";
+    }
 
-echo get_class($person) . "<br>";
-
-if(is_a($person, 'Person')){
-    echo "Yup, its a person" . '<br>';
-} else {
-    echo "Not a person" . '<br>';
-}
-
-$person->say_hello();
 ?>
