@@ -1,18 +1,12 @@
 <?php
     include_once('html5req.php');
-    $a = 1;
-    $b = $a;
-    $b = 2;
-
-    echo "a: {$a} / b: {$b}<br>";
-    //returns 1/2
-
-    $a = 1;
-    $b =& $a;
-    $b = 2;
-
-    echo "a: {$a} / b: {$b}<br>";
-    //returns 2/2 the value of a is returned as 2 
+    function ref_test(&$var){
+        //when the & is used the var and a are the same - the number becomes 10
+        $var = $var * 2;
+    }
+    $a = 10;
+ref_test($a);
+echo $a;
    
 
 ?>
