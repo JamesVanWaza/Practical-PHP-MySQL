@@ -1,6 +1,14 @@
 <?php
    class Beverage {
        public $name;
+       
+       function __construct(){
+           echo 'New beverage was created. <br>';
+       }
+       
+       function __clone(){
+           echo 'Existing beverage was cloned. <br>';
+       }
    } 
 
 $a = new Beverage();
