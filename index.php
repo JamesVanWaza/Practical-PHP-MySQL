@@ -7,6 +7,7 @@
 </head>
 
 <body>
+<h1>PRACTICAL PHP MySQL</h1>
 <ul>
 	<li><a href="admintable/index.php">Admintable</a></li>
 	<li><a href="finalpost/index.php">Finalpost</a></li>
