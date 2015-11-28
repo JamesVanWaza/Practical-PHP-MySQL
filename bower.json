@@ -1,0 +1,26 @@
+{
+  "name": "Practical-PHP-MySQL",
+  "homepage": "index.php",
+  "authors": [
+    "JamesVanWaza <jgacuca@gmail.com>"
+  ],
+  "description": "Examples Showing how PHP MySQL is Setup",
+  "main": "index.php",
+  "moduleType": [
+    "es6"
+  ],
+  "keywords": [
+    "PHP",
+    "MySQL",
+    "Responsive"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
