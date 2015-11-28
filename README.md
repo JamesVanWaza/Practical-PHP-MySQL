@@ -21,3 +21,9 @@ logout.php - THE LOGOUT PAGE
 
 
 THE PHPMYSQLBTB Folder is from the concepts learnt in PHP with MySQL Beyond the Basics
+
+
+## TO DO
+1. Google SASS Fonts
+a. Varela Round- Sans Serif
+b. Glegoo - Serif
