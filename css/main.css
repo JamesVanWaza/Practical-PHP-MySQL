@@ -1,33 +1,44 @@
+@import url('https://fonts.googleapis.com/css?family=Righteous|Vollkorn|Work+Sans');
+
 body{
     background-color: white;
 	margin: 1%;
-	font-family: Quattrocento;
+	font-family: 'Vollkorn', serif;
 }
-h1, nav{
-	font-family: Raleway;
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: 'Work Sans', sans-serif;
 }
+
+p{
+	font-family: 'Righteous', cursive;
+}
+
 #header{
 	background-color: #F2D45B;
 	width: 100%;
 }
+
 #header h1{
 	color: white;
 }
+
 ul.sidenav li a:hover{
 	background-color: #A34567;
 	color: #B35678;
 }
+
 h2{
-	font-family: 'Poiret One', cursive;
     color: #C45D67;
 }
 
 h3{
-   font-family: 'Maven Pro', sans-serif;
     color: #D56E78;
     font-weight: bold;
 }
+
 h4{
-  font-family: 'Cambay', sans-serif;
   color: white;
 }
+
+

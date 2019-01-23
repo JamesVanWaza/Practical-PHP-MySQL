@@ -1,12 +1,11 @@
-<!doctype html>
-<html>
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-<title>Practical PHP MySQL</title>
-</head>
+<?php require 'html5req.php';?>
 
 <body>
+  <script src="js/vendor/jquery.js"></script>
+  <script src="js/vendor/modernizr.js"></script>
+  <script src="js/vendor/fastclick.js"></script>
+  <script src="js/foundation.min.js"></script>
+
 <h1>PRACTICAL PHP MySQL</h1>
 <ul>
 	<li><a href="admintable/index.php">Admintable</a></li>
@@ -16,5 +15,5 @@
 	<li><a href="postalDB/index.php">PostalDB</a></li>
 	<li><a href="simpleIDB/register-view-users.php">SimpleIDB</a></li>
 </ul>
-</body>
-</html>
+
+<?php require 'footer.php';?>
