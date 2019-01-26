@@ -49,8 +49,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 				<h3>Your Password has been updated</h3>';
 			} else {
 				/*If it encountered a problem
-				Error Message
-				 */
+					Error Message
+				*/
 				echo '<div data-alert class="alert-box alert round">
 			<p class="text-center">You could not be registered due to a system error. We apologize for any inconvenience.<a href="#" class="close">&times;</a></p></div>';
 				//Debugging message
@@ -73,9 +73,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			}
 			echo '<p class="text-center"><h3>Please try again.</h3><p><br></p></div>';
 		}
-	}// End of if(empty($errors))
+	} // End of if(empty($errors))
 	mysqli_close($dbcon); // Close the database connection
-}// End of main Submit conditional
+} // End of main Submit conditional
 ?>
 <h2 class="text-center">Change Your Password</h2>
 <!--display the form on the screen-->

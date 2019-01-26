@@ -69,7 +69,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			<p class="text-center">You could not be registered due to a system error. We apologize for any inconvenience.<a href="#" class="close">&times;</a></p></div>';
 			// Debugging message:
 			echo '<p>' . mysqli_error($dbcon) . '<br><br>Query: ' . $q . '</p>';
-		}// End of if clause ($result)
+		} // End of if clause ($result)
 		mysqli_close($dbcon); // Close the database connection.
 		exit();
 	} else {
@@ -83,8 +83,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			echo " - $msg<br>\n";
 		}
 		echo '</p><h3 class="text-center">Please try again.</h3><p><br></p></div>';
-	}// End of if (empty($errors)) IF.
-}// End of the main Submit conditional.
+	} // End of if (empty($errors)) IF.
+} // End of the main Submit conditional.
 ?>
 <h2 class="text-center">Register</h2>
 <!--display the form on the screen-->

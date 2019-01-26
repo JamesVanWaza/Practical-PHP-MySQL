@@ -26,6 +26,6 @@ if ($result) {
 
 	// Debugging message:
 	echo '<p>' . mysqli_error($dbcon) . '<br><br />Query: ' . $q . '</p>';
-}// End of if ($r) IF.
+} // End of if ($r) IF.
 mysqli_close($dbcon); // Close the database connection.
 ?>
