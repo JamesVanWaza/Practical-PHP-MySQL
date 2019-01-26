@@ -31,8 +31,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 		if (@mysqli_num_rows($result) == 1) {
 			/*If one database row (record) matches the input: -
-			Start the session, fetch the record and insert the three values in an array
-			 */
+				Start the session, fetch the record and insert the three values in an array
+			*/
 			$_SESSION = mysqli_fetch_array($result, MYSQLI_ASSOC);
 			//Ensure that the user level is an integer.
 			$_SESSION['user_level'] = (int) $_SESSION['user_level'];
@@ -52,7 +52,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		echo '<p class="alert-box alert round">Please try again<br><a href="#" class="close">&times;</p>';
 	}
 	mysqli_close($dbcon);
-}//End of Submit Conditional
+} //End of Submit Conditional
 
 ?>
 <h2 class="text-center">Login</h2>

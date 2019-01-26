@@ -60,8 +60,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	}
 	if (empty($errors)) {
 		/*If everything is ok, make the update query
-		Check that the email is not already in the users table
-		 */
+			Check that the email is not already in the users table
+		*/
 		$q = "UPDATE finalpost SET fname='$fn', lname='$ln', email='$e', class='$class', paid='$paid' WHERE user_id=$id LIMIT 1";
 		$result = @mysqli_query($dbcon, $q);
 		if (mysqli_affected_rows($dbcon) == 1) {
@@ -97,7 +97,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	 * echo '<a href="#" class="close">&times;</a></div></p><p>Please try
 	 * again.</p>';***/
 
-}// End of if (empty($errors))section.
+} // End of if (empty($errors))section.
 // Select the user's information:
 $q = "SELECT fname, lname, email, class, paid FROM finalpost WHERE user_id=$id";
 $result = @mysqli_query($dbcon, $q);

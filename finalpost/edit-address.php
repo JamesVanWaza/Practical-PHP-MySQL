@@ -97,7 +97,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   <h3 class="text-center">The user has been edited.</h3>
   <a href="#" class="close">&times;</a>
 </div>';
-			} else {// Echo a message if the query failed.
+			} else { // Echo a message if the query failed.
 				echo '<p class="alert-box alert round">The user could not be edited due to a system error. We apologize for any inconvenience.</p>'; // Public message.
 				echo '<p>' . mysqli_error($dbcon) . '<br />Query: ' . $q . '</p>'; // Debugging message.
 			}
@@ -112,8 +112,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			echo " - $msg<br />\n";
 		}
 		echo '</p><p>Please try again.</p>';
-	}// End of if (empty($errors))section.
-}// End of the conditionals
+	} // End of if (empty($errors))section.
+} // End of the conditionals
 // Select the user's information:
 $q = "SELECT title, fname, lname, addr1, addr2, city, county, pcode, phone FROM postaldb WHERE user_id=$id";
 $result = @mysqli_query($dbcon, $q);

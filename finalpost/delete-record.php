@@ -81,7 +81,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		echo '<p class="alert-box alert round">This page has been accessed in error.</p>';
 		echo '<p>&nbsp;</p>';
 	}
-}// End of the main submission conditional.
+} // End of the main submission conditional.
 mysqli_close($dbcon);
 echo '<p>&nbsp;</p>';
 include 'footer.php';

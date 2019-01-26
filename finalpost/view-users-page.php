@@ -53,6 +53,6 @@ if ($result) {
 
 	/*Debug Message*/
 	echo '<p>' . mysqli_error($dbcon) . '<br><br>Query: ' . $q . '</p>';
-}//End of if ($result)
+} //End of if ($result)
 mysqli_close($dbcon); //Close the databse function
 ?>
