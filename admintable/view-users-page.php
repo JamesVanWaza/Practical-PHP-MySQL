@@ -45,6 +45,6 @@ if ($result) {
 	echo '<p class="alert-box alert round">The current users could not be retrieved. We apologize for any inconvenience.</p>';
 	// Debugging message:
 	echo '<p>' . mysqli_error($dbcon) . '<br><br />Query: ' . $q . '</p>';
-}// End of if ($r) IF.
+} // End of if ($r) IF.
 mysqli_close($dbcon); // Close the database connection.
 ?>

@@ -49,7 +49,7 @@ if ($result) {
 	echo '<p class="alert-box alert round">The current users could not be retrieved. We apologize for any inconvenience.</p>';
 // Debugging message
 	echo '<p>' . mysqli_error($dbcon) . '<br><br>Query: ' . $q . '</p>';
-}// End of if ($result). Now display the figure for total number of records/members
+} // End of if ($result). Now display the figure for total number of records/members
 $q = "SELECT COUNT(user_id) FROM users";
 $result = @mysqli_query($dbcon, $q);
 $row = @mysqli_fetch_array($result, MYSQLI_NUM);

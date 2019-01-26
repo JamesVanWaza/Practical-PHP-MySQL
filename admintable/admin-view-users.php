@@ -27,13 +27,13 @@ if (isset($_GET['p']) && is_numeric
 	$row = @mysqli_fetch_array($result, MYSQLI_NUM);
 	$records = $row[0];
 //Now calculate the number of pages
-	if ($records > $pagerows) {//if the number of records will fill more than one page
+	if ($records > $pagerows) { //if the number of records will fill more than one page
 		//Calculatethe number of pages and round the result up to the nearest integer
 		$pages = ceil($records / $pagerows); #5
 	} else {
 		$pages = 1;
 	}
-}//page check finished
+} //page check finished
 //Declare which record to start with
 if (isset($_GET['s']) && is_numeric
 	($_GET['s'])) {
@@ -77,7 +77,7 @@ if ($result) {
 	echo "<p class='alert-box alert round'>The current users could not be retrieved. We apologize for any inconvience.</p>";
 	// Debug message
 	echo '<p>' . mysqli_error($dbcon) . '<br><br />Query: ' . $q . '</p>';
-}// End of if ($result)
+} // End of if ($result)
 //Now display the figure for the total number of records/members
 $q = "SELECT COUNT(user_id) FROM users";
 $result = @mysqli_query($dbcon, $q);

@@ -26,9 +26,13 @@ require 'mysqli-connect.php';
 /*Has the form been submitted?*/
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	if ($_POST['sure'] == 'Yes') {
-		/*Delete the record
-		Make the query
+
+		/**
+		 * Delete the record
+		 *
+		 * Make the query
 		 */
+
 		$q = "DELETE FROM users WHERE user_id=$id LIMIT 1";
 		$result = @mysqli_query($dbcon, $q);
 		if (mysqli_affected_rows($dbcon) == 1) {
@@ -50,8 +54,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	$result = @mysqli_query($dbcon, $q);
 	if (mysqli_num_rows($result) == 1) {
 		/*Valid user ID, display the form
-		and get the user's information
-		 */
+			and get the user's information
+		*/
 		$row = mysqli_fetch_array($result, MYSQLI_NUM);
 		/*Display the name of the member being deleted*/
 		echo "<h3>Are you sure you want to permanently delete $row[0]?</h3>";
