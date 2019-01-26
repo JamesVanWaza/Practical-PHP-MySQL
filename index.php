@@ -5,6 +5,7 @@
   <script src="js/vendor/modernizr.js"></script>
   <script src="js/vendor/fastclick.js"></script>
   <script src="js/foundation.min.js"></script>
+    <script src="node_modules/"></script>
 
 <h1>PRACTICAL PHP MySQL</h1>
 <ul>
