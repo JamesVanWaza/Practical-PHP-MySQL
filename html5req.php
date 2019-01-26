@@ -4,7 +4,7 @@
 <head>
   <link href="node_modules/foundation-sites/dist/css/foundation.min.css" rel="stylesheet" type="text/css">
   <link href="css/main.css" rel="stylesheet" type="text/css">
-  <link rel="stylesheet" href="node_modules/@fortawesome/fontawesome-free/js/all.js">
+  <script defer src="node_modules/@fortawesome/fontawesome-free/js/all.js"></script>
 </head>
 
 
