@@ -1,3 +1,3 @@
 <?php include '../html5req.php';
-include ('nav.php');
+include 'nav.php';
 ?>
