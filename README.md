@@ -24,6 +24,4 @@ THE PHPMYSQLBTB Folder is from the concepts learnt in PHP with MySQL Beyond the 
 
 
 ## TO DO
-1. Google SASS Fonts
-a. Varela Round- Sans Serif
-b. Glegoo - Serif
+- [ ] Button Styling
