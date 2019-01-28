@@ -1,5 +1,4 @@
-<?php include '../html5req.php';
-include 'nav.php';?>
+<?php include 'nav.php';?>
 <h2 class="text-center">These are the registered users</h2>
 <?php
 // This script retrieves all the records from the users table.
@@ -28,4 +27,6 @@ if ($result) {
 	echo '<p>' . mysqli_error($dbcon) . '<br><br />Query: ' . $q . '</p>';
 } // End of if ($r) IF.
 mysqli_close($dbcon); // Close the database connection.
+include 'footer.php';
 ?>
+
