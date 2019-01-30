@@ -1,5 +1,4 @@
 <meta charset="utf-8">
-<?php include '../html5req.php';?>
 <?php include 'nav.php';?>
 <?php
 // This script performs an INSERT query that adds a record to the users table.
@@ -67,7 +66,7 @@ VALUES (' ', '$fn', '$ln', '$e', SHA1('$p'), NOW() )"; #6
 inconvenience.</p>';
 // Debug the message:
 			echo '<p>' . mysqli_error($dbcon) . '<br><br>Query: ' . $q . '</p>';
-		}// End of if clause ($result)
+		} // End of if clause ($result)
 		mysqli_close($dbcon); // Close the database connection.
 		// Include the footer and quit the script:
 		include 'footer.php';
@@ -81,8 +80,8 @@ inconvenience.</p>';
 			echo " - $msg<br>\n";
 		}
 		echo '</p><h3>Please try again.</h3><p><br></p>';
-	}// End of if (empty($errors)) IF.
-}// End of the main Submit conditional.
+	} // End of if (empty($errors)) IF.
+} // End of the main Submit conditional.
 ?>
 <h2 class="text-center">Register</h2>
 <!--display the form on the screen-->
