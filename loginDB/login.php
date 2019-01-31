@@ -3,6 +3,11 @@ ob_start();
 session_start();
 include 'login-header.php';
 
+/**
+ * Test login - username: james@jozinho.com
+ * Test password - password - Test2019!
+ */
+
 /** This section processes submissions from the login form */
 
 /** Check if the form has been submitted */

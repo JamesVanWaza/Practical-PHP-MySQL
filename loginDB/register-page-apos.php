@@ -1,5 +1,5 @@
 <meta charset="utf-8">
-<?php include 'nav.php';?>
+<?php include 'register-header.php';?>
 <?php
 // This script performs an INSERT query that adds a record to the users table.
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -44,13 +44,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 // Make the query                                                                      #5
 
 		$q = "INSERT INTO users (user_id, fname, lname, email, psword, registration_date)
-VALUES (' ', '$fn', '$ln', '$e', SHA1('$p'), NOW() )"; #6
+			VALUES (' ', '$fn', '$ln', '$e', SHA1('$p'), NOW())"; #6
 
 		$result = @mysqli_query($dbcon, $q); // Run the query.                                #7
 
 		if ($result) {
-			// If it ran OK.                                                        #8
-
+			// If it ran OK. #8
 			header("location: register-thanks.php"); #9
 
 			exit(); #10

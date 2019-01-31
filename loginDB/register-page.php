@@ -1,5 +1,5 @@
-<?php include 'register-header.php';?>
 <?php
+include 'login-header.php';
 // This script performs an INSERT query that adds a record to the users table.
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
@@ -26,7 +26,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	}
 
 	// Check for a password and match it against the confirmed password
-
 	if (!empty($_POST['psword1'])) {
 		if ($_POST['psword1'] != $_POST['psword2']) {
 			$errors[] = 'Your two passwords did not match.';
@@ -36,32 +35,34 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	} else {
 		$errors[] = 'You did not enter your password.';
 	}
-//Start of the SUCCESSFUL SECTION. i.e all the fields were filled out
+
+	/** Start of the SUCCESSFUL SECTION. i.e all the fields were filled out */
 	if (empty($errors)) {
-		// If no problems encountered, register user in the database
+		/** If no problems encountered, register user in the database */
 		require 'mysqli-connect.php'; // Connect to the database.
 
-// Make the query
+		/** Make the query */
 		$r = "INSERT INTO logindb (user_id, fname, lname, email, psword, registration_date)
-VALUES (' ', '$fn', '$ln', '$e', SHA1('$p'), NOW() )";
+			VALUES (' ', '$fn', '$ln', '$e', SHA1('$p'), NOW())";
 
 		$result = @mysqli_query($dbcon, $r); // Run the query.
 
 		if ($result) {
-			// If it ran OK.
+			/** If it ran OK. */
 			header("Location: register-thanks.php");
 			exit();
 
-//End of SUCCESSFUL SECTION
+			//End of SUCCESSFUL SECTION
 		} else {
 			// If the form handler or database table contained errors                       #11
 
-// Display any error message
+			// Display any error message
 			echo '<h2 class="text-center">System Error</h2>
-  <p class="alert-box alert round">You could not be registered due to a system error. We apologize for any inconvenience.</p>';
-// Debug the message:
+  				<p class="alert-box alert round">You could not be registered due to a system error. We apologize for any inconvenience.</p>';
+
+			// Debug the message:
 			echo '<p>' . mysqli_error($dbcon) . '<br><br>Query: ' . $r . '</p>';
-		}// End of if clause ($result)
+		} // End of if clause ($result)
 		mysqli_close($dbcon); // Close the database connection.
 		// Include the footer and quit the script:
 		include 'footer.php';
@@ -75,8 +76,8 @@ VALUES (' ', '$fn', '$ln', '$e', SHA1('$p'), NOW() )";
 			echo " - $msg<br>\n";
 		}
 		echo '</p><h3>Please try again.</h3><p><br></p>';
-	}// End of if (empty($errors)) IF.
-}// End of the main Submit conditional.
+	} // End of if (empty($errors)) IF.
+} // End of the main Submit conditional.
 ?>
 <h2 class="text-center">Register</h2>
 <!--display the form on the screen-->
