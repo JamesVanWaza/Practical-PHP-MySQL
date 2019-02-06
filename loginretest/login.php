@@ -1,4 +1,3 @@
-<?php include 'html5req.php'?>
-LOGIN
-<?php header("refresh:100"); /** Refreshes every one hundred seconds */?>
+<?php include 'header-admin.php'?>
+<?php header("refresh:60"); /** Refreshes every one minute */?>
 <?php include 'footer.php';?>
