@@ -1,9 +1,16 @@
 <?php
-include 'login-header.php';
-// This script performs an INSERT query that adds a record to the users table.
+include 'header-admin.php';
+
+/** If no problems encountered, register user in the database */
+require 'mysqli-connect.php';
+
+/**
+ * This script performs an INSERT query that adds a record to the loginretest table.
+ */
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 	$errors = array(); // Initialize an error array.
+
 	// Was the first name entered?
 	if (empty($_POST['fname'])) {
 		$errors[] = 'You did not enter your first name.';
@@ -38,14 +45,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 	/** Start of the SUCCESSFUL SECTION. i.e all the fields were filled out */
 	if (empty($errors)) {
-		/** If no problems encountered, register user in the database */
-		require 'mysqli-connect.php'; // Connect to the database.
 
 		/** Make the query */
-		$r = "INSERT INTO logindb (user_id, fname, lname, email, psword, registration_date)
-			VALUES (' ', '$fn', '$ln', '$e', SHA1('$p'), NOW())";
+		$s = "INSERT INTO logindb (user_id, fname, lname, email, psword, registration_date)
+			VALUES (`user_id`, '$fn', '$ln', '$e', SHA1('$p'), NOW())";
 
-		$result = @mysqli_query($dbcon, $r); // Run the query.
+		$result = @mysqli_query($dbcon, $s); // Run the query.
 
 		if ($result) {
 			/** If it ran OK. */
@@ -79,9 +84,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	} // End of if (empty($errors)) IF.
 } // End of the main Submit conditional.
 ?>
+
 <h2 class="text-center">Register</h2>
 <!--display the form on the screen-->
-<form action="register-thanks.php" method="post">
+<form action="register-page.php" method="post">
   <div class="row"><!--Beginning of First Row-->
   	<div class="large-6 medium-6 small-12 columns">
       <label>First Name
@@ -132,3 +138,4 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   </div>
     </div><!--End of Third Row-->
 </form>
+<?php include 'footer.php';?>
