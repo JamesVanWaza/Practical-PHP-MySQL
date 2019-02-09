@@ -1,31 +1,33 @@
 <meta charset="utf-8">
 <?php include 'register-header.php';?>
 <?php
-// This script performs an INSERT query that adds a record to the users table.
+/** This script performs an INSERT query that adds a record to the logindb table. */
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-	#1
 
 	$errors = array(); // Initialize an error array.
-	// Was the first name entered?
+
+	/** Was the first name entered? */
 	if (empty($_POST['fname'])) {
 		$errors[] = 'You did not enter your first name.';
 	} else {
 		$fn = trim($_POST['fname']);
 	}
-	// Was the last name entered?
+
+	/** Was the last name entered? */
 	if (empty($_POST['lname'])) {
 		$errors[] = 'You did not enter your last name.';
 	} else {
 		$ln = mysqli_real_escape_string($dbcon, trim($_POST['lname']));
 	}
-	// Was an email address entered?
+
+	/** Was an email address entered? */
 	if (empty($_POST['email'])) {
 		$errors[] = 'You did not enter your email address.';
 	} else {
 		$e = trim($_POST['email']);
 	}
-	// Did the two passwords match?                                                   #2
 
+	/** Did the two passwords match? */
 	if (!empty($_POST['psword1'])) {
 		if ($_POST['psword1'] != $_POST['psword2']) {
 			$errors[] = 'Your passwords were not the same.';
@@ -35,47 +37,50 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	} else {
 		$errors[] = 'You did not enter your password.';
 	}
-//Start of the SUCCESSFUL SECTION. i.e all the fields were filled out
+
+	/** Start of the SUCCESSFUL SECTION. i.e all the fields were filled out */
 	if (empty($errors)) {
-		// If no problems encountered, register user in the database     #3
+		/** If no problems encountered, register user in the database  */
 
-		require 'mysqli-connect.php'; // Connect to the database.                            #4
+		require 'mysqli-connect.php'; /** Connect to the database */
 
-// Make the query                                                                      #5
+		/** Make the query */
+		$q = "INSERT INTO logindb (user_id, fname, lname, email, psword, registration_date)
+			VALUES (' ', '$fn', '$ln', '$e', SHA1('$p'), NOW())";
 
-		$q = "INSERT INTO users (user_id, fname, lname, email, psword, registration_date)
-			VALUES (' ', '$fn', '$ln', '$e', SHA1('$p'), NOW())"; #6
-
-		$result = @mysqli_query($dbcon, $q); // Run the query.                                #7
+		$result = @mysqli_query($dbcon, $q); /** Run the query */
 
 		if ($result) {
-			// If it ran OK. #8
+			/** If it ran ok. */
 			header("location: register-thanks.php"); #9
 
-			exit(); #10
+			exit();
 
-//End of SUCCESSFUL SECTION
+			/** End of successful section */
 		} else {
-			// If the form handler or database table contained errors                       #11
+			/** If the form handler or database table contained errors */
 
-// Display any error message
+			/** Display any error message */
 			echo '<h2 class="text-center">System Error</h2>
-<p class="alert-box alert round">You could not be registered due to a system error. We apologize for any
+					<p class="alert-box alert round">You could not be registered due to a system error. We apologize for any
 
 inconvenience.</p>';
-// Debug the message:
+			/** Debug the message: */
 			echo '<p>' . mysqli_error($dbcon) . '<br><br>Query: ' . $q . '</p>';
-		} // End of if clause ($result)
-		mysqli_close($dbcon); // Close the database connection.
-		// Include the footer and quit the script:
+		}/** End of if clause ($result) */
+
+		mysqli_close($dbcon); /** Close the database connection */
+
+		/** Include the footer and quit the script: */
 		include 'footer.php';
 		exit();
 	} else {
-		// Display the errors
+
+		/** Display the errors */
 		echo '<h2 class="text-center">Error!</h2>
         <p class="alert-box alert round">The following error(s) occurred:<br>';
 		foreach ($errors as $msg) {
-			// Print each error.                             #12
+			/** Print each error. */
 			echo " - $msg<br>\n";
 		}
 		echo '</p><h3>Please try again.</h3><p><br></p>';
