@@ -1,24 +1,28 @@
-<?php include 'html5req.php';?>
-<?php include 'nav.php';?>
+<?php include 'header-members.php';?>
+
 <?php
-/*This Page lets users change their password*/
-/*Was the submit button clicked*/
+/** This page lets users change their passwords */
+
+/** Was the submit button clicked */
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	require 'mysqli-connect.php'; //Connect to the database
 	$errors = array(); //Initialize the error array
-	/*Check for an email address*/
+
+	/** Check for an email address */
 	if (empty($_POST['email'])) {
 		$errors[] = 'You forgot to enter your email address';
 	} else {
 		$e = mysqli_real_escape_string($dbcon, trim($_POST['email']));
 	}
-	/*Check for the current password*/
+
+	/** Check for the current password */
 	if (empty($_POST['psword'])) {
 		$errors[] = 'You forgot to enter your current password';
 	} else {
 		$p = mysqli_real_escape_string($dbcon, trim($_POST['psword']));
 	}
-	/*Check for a new password and match against the confirmed password*/
+
+	/** Check for a new password and match against the confirmed password */
 	if (!empty($_POST['psword1'])) {
 		if ($_POST['psword1'] != $_POST['psword2']) {
 			$errors[] = 'Your new password did not match the confirmed passsword';
@@ -28,9 +32,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	} else {
 		$errors[] = 'You forgot to enter your email address';
 	}
+
 	if (empty($errors)) {
 		//If No Problems occured
-		/*Check that the user has entered the right email address/password combination*/
+		/** Check that the user has entered the right email address/password combination [description] */
 		$q = "SELECT user_id FROM users WHERE(email='$e' AND psword=SHA1('$p'))";
 		$result = @mysqli_query($dbcon, $q);
 		$num = @mysqli_num_rows($result);
@@ -47,9 +52,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 				echo '<h2 class="text-center">Thank You!</h2>
 				<h3>Your Password has been updated</h3>';
 			} else {
-				/*If it encountered a problem
-					Error Message
-				*/
+				/**
+				 * If it encountered a problem - Error Message
+				 */
+
 				echo '<h2 class="text-center">System Error</h2><p class="alert-box alert round">You could not be registered due to a system error. We apologize for any inconvenience.</p>';
 				//Debugging message
 				echo '<p>' . mysqli_error($dbcon) . '<br><br>Query: ' . $q . '</p>';

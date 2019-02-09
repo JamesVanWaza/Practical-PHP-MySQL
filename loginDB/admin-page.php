@@ -15,6 +15,6 @@ if (isset($_SESSION['fname'])) {
 echo '</h2>';
 ?>
 <h3>You have permission to:</h3>
-<p>&#9632; Use the View members button to see a table of registered members</p>
+<p>&#9632; Use the <a href="view-users-page.php">View members</a>  button to see a table of registered members</p>
 <p>&#9632; Use the Search button to locate a particular member</p>
 <p>&#9632; Use the Addresses button to locate a member's address and phone number</p>
