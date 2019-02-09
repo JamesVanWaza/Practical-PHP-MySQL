@@ -6,7 +6,7 @@ if (!isset($_SESSION['user_level']) or ($_SESSION['user_level']) != 1) {
 	exit();
 }
 
-include 'html5req.php';
+include 'header-members.php';
 
 echo '<h2 class="text-center">Welcome to the Admin Page ';
 if (isset($_SESSION['fname'])) {
