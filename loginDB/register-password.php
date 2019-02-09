@@ -34,42 +34,50 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	}
 
 	if (empty($errors)) {
-		//If No Problems occured
+		/** If No Problems occured */
+
 		/** Check that the user has entered the right email address/password combination [description] */
-		$q = "SELECT user_id FROM users WHERE(email='$e' AND psword=SHA1('$p'))";
+		$q = "SELECT user_id FROM logindb WHERE(email='$e' AND psword=SHA1('$p'))";
 		$result = @mysqli_query($dbcon, $q);
 		$num = @mysqli_num_rows($result);
+
 		if ($num == 1) {
-			//Match was made
-			//Get the user_id
+
+			/**
+			 * Match was made
+			 * Get the user_id
+			 */
 			$row = mysqli_fetch_array($result, MYSQLI_NUM);
-			// Make the Update Query:
-			$q = "UPDATE users SET psword=sha1('$np') WHERE user_id=$row[0]";
+
+			/** Make the Update Query: */
+			$q = "UPDATE logindb SET psword=sha1('$np') WHERE user_id=$row[0]";
 			$result = @mysqli_query($dbcon, $q);
+
 			if (mysqli_affected_rows($dbcon) == 1) {
-				//If the query ran without a problem
-				//Echo a message
+				/**
+				 * If the query ran without a problem - Echo a message
+				 */
 				echo '<h2 class="text-center">Thank You!</h2>
 				<h3>Your Password has been updated</h3>';
 			} else {
 				/**
 				 * If it encountered a problem - Error Message
 				 */
-
 				echo '<h2 class="text-center">System Error</h2><p class="alert-box alert round">You could not be registered due to a system error. We apologize for any inconvenience.</p>';
-				//Debugging message
+
+				/** Debugging message */
 				echo '<p>' . mysqli_error($dbcon) . '<br><br>Query: ' . $q . '</p>';
 			}
 			mysqli_close($dbcon); //Close the database connection
-			/*Include the footer and quit the script (to not show the form)*/
+			/** Include the footer and quit the script (to not show the form) */
 			include 'footer.php';
 			exit();
 		} else {
-			//Report the errors
+			/** Report the errors */
 			echo '<h2 class="text-center">Error!</h2>
-<p class="alert-box alert round">The following error(s) occurred:<br>';
+					<p class="alert-box alert round">The following error(s) occurred:<br>';
 			foreach ($errors as $msg) {
-				// Print each error.                             #12
+				/** Print each error. #12 */
 				echo " - $msg<br>\n";
 			}
 			echo '<p class="alert-box alert round"><h3>Please try again.</h3><p><br></p>';
