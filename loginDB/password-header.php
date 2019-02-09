@@ -5,7 +5,7 @@
     <nav>
         <ul class="side-nav">
             <li>
-                <a href="register-page.php">Erase Entries</a>
+                <a href="register-password.php">Erase Entries</a>
                 <a href="index.php">Cancel</a>
             </li>
         </ul>

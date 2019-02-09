@@ -5,7 +5,7 @@
     <nav>
         <ul class="side-nav">
             <li>
-                <a href="index.php">Login</a>
+                <a href="index.php">Home Page</a>
             </li>
         </ul>
     </nav>
