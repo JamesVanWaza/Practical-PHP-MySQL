@@ -132,3 +132,4 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 </div>
 </div><!--End of Third Row-->
 </form>
+<?php include 'footer.php';?>
