@@ -23,7 +23,7 @@ $q = "SELECT CONCAT(lname, ', ', fname) AS name, DATE_FORMAT(registration_date, 
 $result = @mysqli_query($dbcon, $q); //Run the query
 
 if ($result) {
-	//If it ran OK, display thr records
+	//If it ran OK, display the records
 
 	/** Table Header */
 	echo "<table>
