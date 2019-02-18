@@ -5,7 +5,7 @@ include 'register-header.php';
 require 'mysqli-connect.php';
 
 /**
- * This script performs an INSERT query that adds a record to the loginretest table.
+ * This script performs an INSERT query that adds a record to the logindb table.
  */
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
