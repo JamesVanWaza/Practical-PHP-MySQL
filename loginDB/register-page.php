@@ -1,5 +1,5 @@
 <?php
-include 'header-admin.php';
+include 'register-header.php';
 
 /** If no problems encountered, register user in the database */
 require 'mysqli-connect.php';
