@@ -89,8 +89,8 @@ ob_end_flush();
       </label><span>Between 8 and 12 characters</span>
     </div>
       <div class="large-12 small-12 columns">
-    	<!-- <input type="submit" id="submit" name="submit" class="button [radius round alert]" value="Login"><i class="fas fa-lock"></i> -->
     	<button type="submit" id="submit" name="submit" class="button radius" value="Login">Login <i class="fas fa-lock"></i> </button>
   	</div>
     </div><!--End of Third Row-->
 </form>
+<?php include 'footer.php';?>
