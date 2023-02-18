@@ -1,6 +1,4 @@
 /node_modules/
-/scss/
 *.xml
 yarn.lock
 images/
-yarn.lock

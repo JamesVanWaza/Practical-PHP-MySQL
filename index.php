@@ -1,6 +1,6 @@
 <?php
-require 'html5req.php';
-header("Refresh:60"); /** Refresh for 1 minute */
+	require 'html5req.php';
+	header("Refresh:60"); /** Refresh for 1 minute */
 ?>
 
 <body>
