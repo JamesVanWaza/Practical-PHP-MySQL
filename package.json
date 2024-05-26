@@ -1,16 +1,16 @@
 {
     "name": "practical-php-mysql",
-    "version": "1.0.7",
+    "version": "2024.1.8",
     "description": "Practical PHP MySQL",
     "main": "index.php",
     "repository": "https://github.com/JamesVanWaza/Practical-PHP-MySQL.git",
     "author": "JamesVanWaza <info@dosbranding.com>",
     "license": "MIT",
     "devDependencies": {
-        "@fortawesome/fontawesome-free": "^6.3.0"
+        "@fortawesome/fontawesome-free": "^6.5.2"
     },
     "dependencies": {
-        "bootstrap": "^5.2.3"
+        "bootstrap": "^5.3.3"
     },
     "peerDependencies": {}
 }
